@@ -48,13 +48,58 @@ if (filterBar) {
   });
 }
 
-// Contact form — currently just prevents page reload on submit.
-// To actually send these briefs somewhere, connect this form to a service
-// like Formspree, or add a backend endpoint to POST to.
+// Contact form — submits to /api/brief (see api/brief.js)
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    alert('This form is a placeholder — connect it to a form service (e.g. Formspree) to actually receive briefs.');
+
+    // Clear any previous error states
+    contactForm.querySelectorAll('.field-error').forEach(el => el.remove());
+    contactForm.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
+
+    const formData = Object.fromEntries(new FormData(contactForm));
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const res = await fetch('/api/brief', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        contactForm.reset();
+        submitBtn.textContent = 'Sent! ✓';
+        setTimeout(() => { submitBtn.textContent = originalBtnText; }, 3000);
+      } else if (data.errors) {
+        // Show inline errors under each invalid field
+        Object.entries(data.errors).forEach(([field, message]) => {
+          const input = contactForm.querySelector(`[name="${field}"]`);
+          if (input) {
+            input.classList.add('has-error');
+            const errEl = document.createElement('span');
+            errEl.className = 'field-error';
+            errEl.textContent = message;
+            input.insertAdjacentElement('afterend', errEl);
+          }
+        });
+        submitBtn.textContent = originalBtnText;
+      } else {
+        throw new Error(data.error || 'Something went wrong');
+      }
+    } catch (err) {
+      alert('Something went wrong sending your brief — please try emailing ugcnaveini@gmail.com directly.');
+      submitBtn.textContent = originalBtnText;
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 }
