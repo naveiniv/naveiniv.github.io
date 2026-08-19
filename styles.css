@@ -239,21 +239,6 @@ h1.in-view, h2.in-view { opacity: 1; transform: translateY(0); }
 .author-name { font-weight: 600; color: var(--sage); font-size: 0.95rem; }
 .author-title { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em; }
 
-/* ============ CONTACT ============ */
-.contact-grid { max-width: var(--max-width); margin: 0 auto; padding: 5rem 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-.contact-left p:not(.eyebrow) { color: var(--ink-soft); margin: 1.2rem 0 2rem; max-width: 42ch; }
-.contact-details p { font-size: 0.9rem; margin-bottom: 0.6rem; color: var(--ink); }
-.contact-details span { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; color: var(--ink-soft); display: inline-block; width: 90px; }
-
-.contact-form { display: flex; flex-direction: column; gap: 1.3rem; }
-.contact-form label { display: flex; flex-direction: column; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); }
-.contact-form input, .contact-form textarea {
-  font-family: var(--font-body); font-size: 0.95rem; padding: 0.9rem 1rem;
-  background: var(--berry-soft); border: none; border-radius: 3px; color: var(--ink); resize: vertical;
-}
-.contact-form input::placeholder, .contact-form textarea::placeholder { color: #9E6F78; }
-.contact-form button { align-self: flex-start; margin-top: 0.3rem; }
-
 /* ============ FOOTER ============ */
 .footer {
   max-width: var(--max-width); margin: 0 auto; padding: 2rem 1.5rem;
@@ -265,7 +250,7 @@ h1.in-view, h2.in-view { opacity: 1; transform: translateY(0); }
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {
-  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
   .socials-grid, .services-grid { grid-template-columns: 1fr; }
   .work-grid { grid-template-columns: repeat(2, 1fr); }
   .press-row { grid-template-columns: 56px 1fr; }
