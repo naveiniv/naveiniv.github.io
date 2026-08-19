@@ -239,6 +239,13 @@ h1.in-view, h2.in-view { opacity: 1; transform: translateY(0); }
 .author-name { font-weight: 600; color: var(--sage); font-size: 0.95rem; }
 .author-title { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em; }
 
+/* ============ CONTACT ============ */
+.contact-solo { max-width: var(--max-width); margin: 0 auto; padding: 5rem 1.5rem; text-align: center; }
+.contact-solo p:not(.eyebrow) { color: var(--ink-soft); margin: 1.2rem auto 2rem; max-width: 42ch; }
+.contact-details { display: inline-flex; flex-direction: column; gap: 0.6rem; text-align: left; }
+.contact-details p { font-size: 0.9rem; margin: 0; color: var(--ink); }
+.contact-details span { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; color: var(--ink-soft); display: inline-block; width: 90px; }
+
 /* ============ FOOTER ============ */
 .footer {
   max-width: var(--max-width); margin: 0 auto; padding: 2rem 1.5rem;
