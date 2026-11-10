@@ -72,6 +72,9 @@
   .icon{width:92px;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;cursor:pointer;padding:6px 2px;border-radius:4px}
   .icon svg{width:46px;height:46px;filter:drop-shadow(2px 2px 0 var(--ink))}
   .icon span{font-size:11.5px;line-height:1.2;text-align:center;padding:1px 4px;background:#fffaf0cc}
+  .icon img{width:56px;height:56px;object-fit:contain;filter:drop-shadow(0 0 2px #fdf6ea) drop-shadow(0 0 5px #fdf6eacc) drop-shadow(2px 3px 0 rgba(31,39,86,.3));transition:transform .15s}
+  .icon:hover img{transform:translateY(-3px) rotate(-3deg)}
+  .icon img[src='icon-swan.png']{border:2px solid var(--ink);border-radius:6px;background:#fdf6ea;height:44px;margin:6px 0}
   .icon:hover span,.icon:focus-visible span{background:var(--ink);color:var(--paper)}
   .icon:focus-visible{outline:none}
 
@@ -308,25 +311,25 @@
 
   <nav class="icons" aria-label="Desktop">
     <button class="icon" data-open="about">
-      <svg viewBox="0 0 48 48"><rect x="8" y="4" width="32" height="40" fill="#fffaf0" stroke="#1f2756" stroke-width="3"/><path d="M14 14h20M14 21h20M14 28h14" stroke="#1f2756" stroke-width="3"/><circle cx="34" cy="36" r="6" fill="#f6c6cc" stroke="#1f2756" stroke-width="3"/></svg>
+      <img src="icon-lily.png" alt="">
       <span>about_me.txt</span></button>
     <button class="icon" data-open="portfolio">
-      <svg viewBox="0 0 48 48"><path d="M4 12h16l4 5h20v25H4z" fill="#f3e2b3" stroke="#1f2756" stroke-width="3" stroke-linejoin="round"/><rect x="17" y="22" width="14" height="14" fill="#c8323b" stroke="#1f2756" stroke-width="3"/></svg>
+      <img src="icon-folder.png" alt="">
       <span>UGC Portfolio</span></button>
     <button class="icon" data-open="stats">
       <svg viewBox="0 0 48 48"><rect x="4" y="6" width="40" height="36" fill="#b5c99a" stroke="#1f2756" stroke-width="3"/><path d="M12 34V26M20 34V18M28 34V22M36 34V12" stroke="#1f2756" stroke-width="5"/></svg>
       <span>stats.exe</span></button>
     <button class="icon" data-open="brands">
-      <svg viewBox="0 0 48 48"><rect x="5" y="5" width="16" height="16" rx="4" fill="#e8b4bb" stroke="#1f2756" stroke-width="3"/><rect x="27" y="5" width="16" height="16" rx="4" fill="#f6c6cc" stroke="#1f2756" stroke-width="3"/><rect x="5" y="27" width="16" height="16" rx="4" fill="#cddcbf" stroke="#1f2756" stroke-width="3"/><rect x="27" y="27" width="16" height="16" rx="4" fill="#f3e2b3" stroke="#1f2756" stroke-width="3"/></svg>
+      <img src="icon-hibiscus.png" alt="">
       <span>Brands.app</span></button>
     <button class="icon" data-open="press">
-      <svg viewBox="0 0 48 48"><rect x="6" y="6" width="36" height="36" fill="#fdf6ea" stroke="#1f2756" stroke-width="3"/><path d="M12 14h24" stroke="#1f2756" stroke-width="4"/><path d="M12 22h10M12 28h10M12 34h10" stroke="#1f2756" stroke-width="2.5"/><rect x="26" y="21" width="10" height="14" fill="#f6c6cc" stroke="#1f2756" stroke-width="2.5"/></svg>
+      <img src="icon-stamp.png" alt="">
       <span>press</span></button>
     <button class="icon" data-open="laylow">
       <svg viewBox="0 0 48 48"><path d="M12 14h24l-3 30H15z" fill="#b5c99a" stroke="#1f2756" stroke-width="3" stroke-linejoin="round"/><path d="M10 14h28" stroke="#1f2756" stroke-width="3"/><path d="M28 14l4-12" stroke="#1f2756" stroke-width="3"/><circle cx="24" cy="29" r="5" fill="#fdf6ea" stroke="#1f2756" stroke-width="2"/></svg>
       <span>lay_low ×<br>naveini</span></button>
     <button class="icon" data-open="projects">
-      <svg viewBox="0 0 48 48"><rect x="4" y="8" width="40" height="32" fill="#1f2756" stroke="#1f2756" stroke-width="3"/><path d="M12 18l6 6-6 6M22 31h12" stroke="#b5c99a" stroke-width="3" fill="none"/></svg>
+      <img src="icon-code.png" alt="">
       <span>code_projects</span></button>
     <button class="icon" data-open="terminal">
       <svg viewBox="0 0 48 48"><rect x="4" y="8" width="40" height="32" fill="#fffaf0" stroke="#1f2756" stroke-width="3"/><path d="M4 16h40" stroke="#1f2756" stroke-width="3"/><path d="M11 25l5 4-5 4" stroke="#c8323b" stroke-width="3" fill="none"/></svg>
@@ -335,16 +338,16 @@
       <svg viewBox="0 0 48 48"><path d="M10 4h20l8 8v32H10z" fill="#fff" stroke="#1f2756" stroke-width="3" stroke-linejoin="round"/><rect x="14" y="26" width="20" height="10" fill="#c8323b" stroke="#1f2756" stroke-width="2"/><text x="24" y="34" font-family="monospace" font-size="7" font-weight="700" fill="#fff" text-anchor="middle">PDF</text></svg>
       <span>resume.pdf</span></button>
     <button class="icon" data-open="brief">
-      <svg viewBox="0 0 48 48"><rect x="4" y="10" width="40" height="28" fill="#cddcbf" stroke="#1f2756" stroke-width="3"/><path d="M4 10l20 16 20-16" stroke="#1f2756" stroke-width="3" fill="none"/></svg>
+      <img src="icon-seal.png" alt="">
       <span>send_a_brief</span></button>
     <button class="icon" data-open="study">
-      <svg viewBox="0 0 48 48"><ellipse cx="17" cy="13" rx="4" ry="10" fill="#f1dcb8" stroke="#1f2756" stroke-width="3"/><ellipse cx="31" cy="13" rx="4" ry="10" fill="#f1dcb8" stroke="#1f2756" stroke-width="3"/><circle cx="24" cy="29" r="15" fill="#f1dcb8" stroke="#1f2756" stroke-width="3"/><circle cx="19" cy="28" r="2" fill="#1f2756"/><circle cx="29" cy="28" r="2" fill="#1f2756"/><circle cx="15" cy="33" r="2.5" fill="#f6c6cc"/><circle cx="33" cy="33" r="2.5" fill="#f6c6cc"/><path d="M14 18Q24 4 34 18Q24 21 14 18Z" fill="#c8323b" stroke="#1f2756" stroke-width="2.5"/></svg>
+      <img src="icon-apple.png" alt="">
       <span>study_buddy</span></button>
     <button class="icon" data-open="sweeper">
       <svg viewBox="0 0 48 48"><path d="M24 44C10 36 8 22 12 16q12-6 24 0c4 6 2 20-12 28z" fill="#c8323b" stroke="#1f2756" stroke-width="3" stroke-linejoin="round"/><path d="M24 14l-9-6 5 8-8 0 12 2 12-2-8 0 5-8z" fill="#5f7a4a" stroke="#1f2756" stroke-width="2.5" stroke-linejoin="round"/><g fill="#fdf6ea"><circle cx="18" cy="24" r="1.4"/><circle cx="26" cy="22" r="1.4"/><circle cx="31" cy="28" r="1.4"/><circle cx="21" cy="31" r="1.4"/><circle cx="27" cy="35" r="1.4"/></g></svg>
       <span>strawberry sweeper</span></button>
     <button class="icon" data-open="settings">
-      <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="#f3e2b3" stroke="#1f2756" stroke-width="3"/><circle cx="24" cy="24" r="6" fill="#fffaf0" stroke="#1f2756" stroke-width="3"/><path d="M24 2v8M24 38v8M2 24h8M38 24h8" stroke="#1f2756" stroke-width="4"/></svg>
+      <img src="icon-swan.png" alt="">
       <span>wallpaper</span></button>
     <button class="icon" data-open="trash">
       <svg viewBox="0 0 48 48"><path d="M10 14h28l-3 30H13z" fill="#fffaf0" stroke="#1f2756" stroke-width="3" stroke-linejoin="round"/><path d="M6 14h36M18 8h12v6" stroke="#1f2756" stroke-width="3" fill="none"/><path d="M19 20v18M29 20v18" stroke="#1f2756" stroke-width="2"/></svg>
