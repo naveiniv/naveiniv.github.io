@@ -87,7 +87,6 @@
   @keyframes close{to{transform:scale(.9);opacity:0}}
   .titlebar{display:flex;align-items:center;gap:8px;padding:6px 8px;border-bottom:2px solid var(--ink);cursor:grab;user-select:none;touch-action:none;background:var(--tb,var(--lilac))}
   .win:not(.active) .titlebar{background:repeating-linear-gradient(90deg,var(--paper) 0 3px,#e8e0cf 3px 4px)}
-  .titlebar .pin{font-size:13px;line-height:1}
   .titlebar .t{font-family:var(--pixel);font-size:12px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .titlebar button{width:20px;height:20px;border:2px solid var(--ink);background:var(--paper);cursor:pointer;display:grid;place-items:center;padding:0;font-family:var(--pixel);font-size:10px;line-height:1}
   .titlebar button:hover{background:var(--ink);color:var(--paper)}
@@ -627,7 +626,7 @@
 <script>
 (() => {
   const WINDOWS = {
-    about:     {title:'about_me.txt',        w:640, tb:'var(--bubble)', pinned:true},
+    about:     {title:'about_me.txt',        w:640, tb:'var(--bubble)'},
     stats:     {title:'stats.exe',           w:520, tb:'var(--mint)'},
     portfolio: {title:'UGC Portfolio',       w:720, tb:'var(--butter)'},
     brands:    {title:'Brands.app',          w:480, tb:'var(--lilac)'},
@@ -666,13 +665,12 @@
     el.style.setProperty('--tb', cfg.tb);
     const W = Math.min(cfg.w, desktop.clientWidth - 40);
     el.style.width = W+'px';
-    const left = cfg.pinned ? Math.min(240, Math.max(10, desktop.clientWidth - W - 20)) : Math.max(10, Math.min(desktop.clientWidth - W - 20, 150 + cascade*34 + (desktop.clientWidth-W-150)*0.25));
-    const top = cfg.pinned ? 20 : Math.max(10, 24 + cascade*30);
-    if(!cfg.pinned) cascade = (cascade+1) % 7;
+    const left = Math.max(10, Math.min(desktop.clientWidth - W - 20, 150 + cascade*34 + (desktop.clientWidth-W-150)*0.25));
+    const top = Math.max(10, 24 + cascade*30);
+    cascade = (cascade+1) % 7;
     el.style.left = left+'px'; el.style.top = top+'px';
-    const pin = cfg.pinned && !mobile();
     el.innerHTML = `<div class="titlebar"><span class="t">${cfg.title}</span>
-      ${pin ? '<span class="pin" title="Pinned: always on screen">📌</span>' : '<button class="min" aria-label="Minimize">_</button><button class="x" aria-label="Close">×</button>'}</div>
+      <button class="min" aria-label="Minimize">_</button><button class="x" aria-label="Close">×</button></div>
       <div class="content"></div>`;
     el.querySelector('.content').appendChild(document.getElementById('tpl-'+id).content.cloneNode(true));
     desktop.appendChild(el);
@@ -680,7 +678,6 @@
     const task = document.createElement('button');
     task.className='task'; task.textContent=cfg.title;
     task.onclick = () => {
-      if(pin){ focusWin(id); return; }
       if(el.style.display==='none'){ el.style.display='flex'; focusWin(id); }
       else if(el.classList.contains('active')){ el.style.display='none'; task.classList.remove('on'); el.classList.remove('active'); }
       else focusWin(id);
@@ -689,10 +686,8 @@
     open[id] = {el, task};
 
     el.addEventListener('pointerdown', () => focusWin(id));
-    if(!pin){
-      el.querySelector('.x').onclick = e => { e.stopPropagation(); closeWin(id); };
-      el.querySelector('.min').onclick = e => { e.stopPropagation(); el.style.display='none'; task.classList.remove('on'); el.classList.remove('active'); };
-    }
+    el.querySelector('.x').onclick = e => { e.stopPropagation(); closeWin(id); };
+    el.querySelector('.min').onclick = e => { e.stopPropagation(); el.style.display='none'; task.classList.remove('on'); el.classList.remove('active'); };
     makeDraggable(el, el.querySelector('.titlebar'));
     focusWin(id);
     init[id] && init[id](el);
@@ -700,7 +695,6 @@
 
   function closeWin(id){
     const o = open[id]; if(!o) return;
-    if(WINDOWS[id].pinned && !mobile()) return;
     o.el.classList.add('closing');
     setTimeout(() => { o.el.remove(); o.task.remove(); }, 140);
     delete open[id];
@@ -1104,7 +1098,7 @@ I'm building on both sides: shipping code and an audience.`; },
   document.addEventListener('pointerdown', e => { if(!e.target.closest('#startmenu,#startBtn')) closeStart(); });
   document.getElementById('tidy').onclick = () => Object.keys(open).forEach(closeWin);
   document.addEventListener('keydown', e => {
-    if(e.key==='Escape'){ const top = Object.entries(open).filter(([k,o])=>o.el.style.display!=='none' && !(WINDOWS[k].pinned && !mobile())).sort((a,b)=>b[1].el.style.zIndex-a[1].el.style.zIndex)[0]; if(top) closeWin(top[0]); closeStart(); }
+    if(e.key==='Escape'){ const top = Object.entries(open).filter(([,o])=>o.el.style.display!=='none').sort((a,b)=>b[1].el.style.zIndex-a[1].el.style.zIndex)[0]; if(top) closeWin(top[0]); closeStart(); }
   });
 
   // sticky note drag
