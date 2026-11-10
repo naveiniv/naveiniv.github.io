@@ -7,7 +7,8 @@
 <meta name="description" content="Naveini Vasikaran: content creator and Computer Science student at Queen's University. UGC portfolio, press, projects and resume.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Silkscreen&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Silkscreen&family=Manrope:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#1f2756;
@@ -41,7 +42,7 @@
       radial-gradient(circle at 20% 30%, #fff 1px, transparent 1.5px) 0 0/90px 90px,
       radial-gradient(circle at 70% 60%, #fff8 1px, transparent 1.5px) 0 0/60px 60px,
       #17132a}
-  body.wp-night .icon span{color:#fff;background:transparent}
+  
   body.wp-night .wallmark{color:#ffffff22}
   a{color:inherit}
   button{font:inherit;color:inherit}
@@ -68,14 +69,14 @@
   /* ---------- desktop ---------- */
   #desktop{position:fixed;top:34px;left:0;right:0;bottom:52px}
   .wallmark{position:absolute;right:4vw;bottom:2vh;font-family:var(--serif);font-style:italic;font-size:clamp(70px,13vw,210px);line-height:.85;color:#1f275612;text-align:right;pointer-events:none;user-select:none;letter-spacing:-.02em}
-  .icons{position:absolute;top:18px;left:18px;display:grid;grid-auto-flow:column;grid-template-rows:repeat(auto-fill,96px);gap:6px 10px;height:calc(100% - 36px)}
-  .icon{width:92px;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;cursor:pointer;padding:6px 2px;border-radius:4px}
-  .icon svg{width:46px;height:46px;filter:drop-shadow(2px 2px 0 var(--ink))}
-  .icon span{font-size:11.5px;line-height:1.2;text-align:center;padding:1px 4px;background:#fffaf0cc}
-  .icon img{width:56px;height:56px;object-fit:contain;filter:drop-shadow(0 0 2px #fdf6ea) drop-shadow(0 0 5px #fdf6eacc) drop-shadow(2px 3px 0 rgba(31,39,86,.3));transition:transform .15s}
+  .icons{position:absolute;top:14px;left:14px;display:grid;grid-auto-flow:column;grid-template-rows:repeat(auto-fill,124px);gap:4px 8px;height:calc(100% - 28px)}
+  .icon{width:116px;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;cursor:pointer;padding:6px 2px;border-radius:4px}
+  .icon svg{width:72px;height:72px;filter:drop-shadow(2px 2px 0 var(--ink))}
+  .icon span{font-family:'Satoshi','Manrope',sans-serif;font-weight:700;font-size:14px;line-height:1.15;text-align:center;padding:1px 4px;color:#ffd6e0;text-shadow:0 1px 2px #1f2756,0 0 6px #1f2756cc,0 0 2px #1f2756}
+  .icon img{width:80px;height:80px;object-fit:contain;filter:drop-shadow(0 0 2px #fdf6ea) drop-shadow(0 0 5px #fdf6eacc) drop-shadow(2px 3px 0 rgba(31,39,86,.3));transition:transform .15s}
   .icon:hover img{transform:translateY(-3px) rotate(-3deg)}
-  .icon img[src='icon-swan.png']{border:2px solid var(--ink);border-radius:6px;background:#fdf6ea;height:44px;margin:6px 0}
-  .icon:hover span,.icon:focus-visible span{background:var(--ink);color:var(--paper)}
+  .icon img[src='icon-swan.png']{border:2px solid var(--ink);border-radius:6px;background:#fdf6ea;height:60px;margin:10px 0}
+  .icon:hover span,.icon:focus-visible span{color:#fff}
   .icon:focus-visible{outline:none}
 
   .sticky{position:absolute;top:30px;right:6vw;width:230px;background:var(--butter);border:2px solid var(--ink);box-shadow:var(--shadow);padding:16px 16px 14px;transform:rotate(2.5deg);font-size:13px;line-height:1.5;z-index:2;cursor:grab;touch-action:none}
@@ -267,6 +268,8 @@
     .menubar .hide-sm{display:none}
     .icons{position:static;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:row;grid-template-rows:none;height:auto;padding:18px 10px;gap:10px}
     .icon{width:auto}
+    .icon img,.icon svg{width:62px;height:62px}
+    .icon span{font-size:12.5px}
     .sticky{position:relative;top:auto;right:auto;margin:6px auto 30px;transform:rotate(-1.5deg);cursor:default}
     #desktop{overflow:auto}
     .wallmark{position:fixed}
@@ -668,7 +671,8 @@
     el.style.setProperty('--tb', cfg.tb);
     const W = Math.min(cfg.w, desktop.clientWidth - 40);
     el.style.width = W+'px';
-    const left = Math.max(10, Math.min(desktop.clientWidth - W - 20, 150 + cascade*34 + (desktop.clientWidth-W-150)*0.25));
+    const iconsRight = mobile() ? 0 : document.querySelector('.icons').getBoundingClientRect().right;
+    const left = Math.max(10, Math.min(desktop.clientWidth - W - 20, iconsRight + 24 + cascade*34));
     const top = Math.max(10, 24 + cascade*30);
     cascade = (cascade+1) % 7;
     el.style.left = left+'px'; el.style.top = top+'px';
