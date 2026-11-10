@@ -47,3 +47,14 @@ if (filterBar) {
     });
   });
 }
+
+// Contact form — currently just prevents page reload on submit.
+// To actually send these briefs somewhere, connect this form to a service
+// like Formspree, or add a backend endpoint to POST to.
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('This form is a placeholder — connect it to a form service (e.g. Formspree) to actually receive briefs.');
+  });
+}

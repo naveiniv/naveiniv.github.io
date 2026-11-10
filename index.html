@@ -2,302 +2,1148 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naveini Vasikaran — Content Creator & Strategist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NaveiniOS — Naveini Vasikaran</title>
+<meta name="description" content="Naveini Vasikaran: content creator and Computer Science student at Queen's University. UGC portfolio, press, projects and resume.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,600&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Silkscreen&family=Manrope:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1f2756;
+    --paper:#fdf6ea;
+    --cream:#f3e9d6;
+    --tomato:#c8323b;
+    --lilac:#e8b4bb;
+    --mint:#b5c99a;
+    --butter:#f3e2b3;
+    --sky:#cddcbf;
+    --bubble:#f6c6cc;
+    --shadow:4px 4px 0 var(--ink);
+    --pixel:'Silkscreen', monospace;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+    --serif:'Instrument Serif', Georgia, serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;overflow:hidden;color:var(--ink);font-family:var(--mono);font-size:14px}
+  body{background:var(--cream)}
+  body.wp-grid{background:
+      radial-gradient(circle at 1px 1px, rgba(27,23,36,.18) 1px, transparent 1.5px) 0 0/18px 18px,
+      var(--cream)}
+  body.wp-collage{background:#3d4a2e url('wallpaper.jpg') center/cover no-repeat fixed}
+  body.wp-collage .wallmark{display:none}
+  body.wp-sunset{background:
+      repeating-linear-gradient(180deg, transparent 0 22px, rgba(255,255,255,.18) 22px 24px),
+      linear-gradient(180deg,#ffb38a 0%,#ff7aa8 45%,#7b5cff 100%)}
+  body.wp-check{background:
+      conic-gradient(#d9ccff 25%, #fff3d6 0 50%, #d9ccff 0 75%, #fff3d6 0) 0 0/48px 48px}
+  body.wp-night{background:
+      radial-gradient(circle at 20% 30%, #fff 1px, transparent 1.5px) 0 0/90px 90px,
+      radial-gradient(circle at 70% 60%, #fff8 1px, transparent 1.5px) 0 0/60px 60px,
+      #17132a}
+  
+  body.wp-night .wallmark{color:#ffffff22}
+  a{color:inherit}
+  button{font:inherit;color:inherit}
 
-<!-- ============ NAV ============ -->
-<header class="nav">
-  <div class="nav-inner">
-    <span class="nav-logo">naveini <span class="accent">vasikaran</span></span>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#charity">Charity</a>
-      <a href="#press">Press</a>
-      <a href="#socials">Socials</a>
-      <a href="#resume">Resume</a>
-      <a href="#work">UGC Work</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a href="#work" class="btn btn-primary nav-cta">View Work</a>
-  </div>
+  /* ---------- boot ---------- */
+  #boot{position:fixed;inset:0;background:#1c2419;color:#e4ecd6;z-index:9999;padding:28px;font-family:var(--mono);font-size:14px;line-height:1.7;display:flex;flex-direction:column;justify-content:flex-end}
+  #boot .logo{font-family:var(--pixel);font-size:28px;color:var(--butter);margin-bottom:12px}
+  #boot .skip{position:absolute;top:18px;right:22px;background:none;border:1px solid #e4ecd655;color:#e4ecd6;padding:6px 10px;cursor:pointer}
+  #boot .bar{height:14px;border:2px solid #e4ecd6;width:min(420px,90%);margin-top:10px;padding:2px}
+  #boot .bar i{display:block;height:100%;width:0;background:#e4ecd6;transition:width .25s steps(6)}
+  #boot.done{opacity:0;pointer-events:none;transition:opacity .4s}
+
+  /* ---------- menu bar ---------- */
+  .menubar{position:fixed;top:0;left:0;right:0;height:34px;background:var(--paper);border-bottom:2px solid var(--ink);display:flex;align-items:center;gap:18px;padding:0 14px;z-index:5000;font-family:var(--pixel);font-size:12px}
+  .menubar .brand{display:flex;align-items:center;gap:8px;font-size:13px}
+  .menubar .brand b{width:16px;height:16px;background:var(--tomato);border:2px solid var(--ink);border-radius:50%;display:inline-block}
+  .menubar button.mi{background:none;border:0;cursor:pointer;padding:4px 6px;font-family:var(--pixel);font-size:12px}
+  .menubar button.mi:hover{background:var(--ink);color:var(--paper)}
+  .menubar .spacer{flex:1}
+  .menubar .status{display:flex;align-items:center;gap:6px}
+  .menubar .dot{width:9px;height:9px;border-radius:50%;background:#2fd17a;border:1.5px solid var(--ink);animation:pulse 1.6s infinite}
+  @keyframes pulse{50%{opacity:.35}}
+
+  /* ---------- desktop ---------- */
+  #desktop{position:fixed;top:34px;left:0;right:0;bottom:52px}
+  .wallmark{position:absolute;right:4vw;bottom:2vh;font-family:var(--serif);font-style:italic;font-size:clamp(70px,13vw,210px);line-height:.85;color:#1f275612;text-align:right;pointer-events:none;user-select:none;letter-spacing:-.02em}
+  .icons{position:absolute;top:14px;left:14px;display:grid;grid-auto-flow:column;grid-template-rows:repeat(auto-fill,124px);gap:4px 8px;height:calc(100% - 28px)}
+  .icon{width:116px;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;cursor:pointer;padding:6px 2px;border-radius:4px}
+  .icon svg{width:72px;height:72px;filter:drop-shadow(2px 2px 0 var(--ink))}
+  .icon span{font-family:'Satoshi','Manrope',sans-serif;font-weight:700;font-size:14px;line-height:1.15;text-align:center;padding:1px 4px;color:#ffd6e0;text-shadow:0 1px 2px #1f2756,0 0 6px #1f2756cc,0 0 2px #1f2756}
+  .icon img{width:80px;height:80px;object-fit:contain;filter:drop-shadow(0 0 2px #fdf6ea) drop-shadow(0 0 5px #fdf6eacc) drop-shadow(2px 3px 0 rgba(31,39,86,.3));transition:transform .15s}
+  .icon:hover img{transform:translateY(-3px) rotate(-3deg)}
+  .icon img[src='icon-swan.png']{border:2px solid var(--ink);border-radius:6px;background:#fdf6ea;height:60px;margin:10px 0}
+  .icon:hover span,.icon:focus-visible span{color:#fff}
+  .icon:focus-visible{outline:none}
+
+  .sticky{position:absolute;top:30px;right:6vw;width:230px;background:var(--butter);border:2px solid var(--ink);box-shadow:var(--shadow);padding:16px 16px 14px;transform:rotate(2.5deg);font-size:13px;line-height:1.5;z-index:2;cursor:grab;touch-action:none}
+  .sticky:before{content:"";position:absolute;top:-12px;left:50%;width:70px;height:22px;transform:translateX(-50%) rotate(-3deg);background:#ffffff99;border:1px dashed #1f275655}
+  .sticky h3{font-family:var(--serif);font-weight:400;font-size:28px;margin:0 0 6px;line-height:1}
+  .sticky em{font-family:var(--serif);font-size:17px}
+
+  /* ---------- windows ---------- */
+  .win{position:absolute;background:var(--paper);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);min-width:280px;display:flex;flex-direction:column;max-height:calc(100% - 20px);animation:pop .18s steps(3)}
+  @keyframes pop{from{transform:scale(.92);opacity:.3}}
+  .win.closing{animation:close .14s steps(3) forwards}
+  @keyframes close{to{transform:scale(.9);opacity:0}}
+  .titlebar{display:flex;align-items:center;gap:8px;padding:6px 8px;border-bottom:2px solid var(--ink);cursor:grab;user-select:none;touch-action:none;background:var(--tb,var(--lilac))}
+  .win:not(.active) .titlebar{background:repeating-linear-gradient(90deg,var(--paper) 0 3px,#e8e0cf 3px 4px)}
+  .titlebar .t{font-family:var(--pixel);font-size:12px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .titlebar button{width:20px;height:20px;border:2px solid var(--ink);background:var(--paper);cursor:pointer;display:grid;place-items:center;padding:0;font-family:var(--pixel);font-size:10px;line-height:1}
+  .titlebar button:hover{background:var(--ink);color:var(--paper)}
+  .content{overflow:auto;padding:18px 20px;line-height:1.6}
+  .content h2{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;margin:0 0 10px;letter-spacing:-.01em}
+  .content h2 i{color:var(--tomato)}
+  .content h4{font-family:var(--pixel);font-weight:400;font-size:12px;margin:18px 0 8px;letter-spacing:.04em}
+  .content p{margin:0 0 10px}
+  .tag{display:inline-block;border:1.5px solid var(--ink);padding:1px 8px;margin:0 4px 6px 0;font-size:12px;background:var(--paper)}
+  .btn{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--ink);background:var(--butter);padding:8px 14px;cursor:pointer;box-shadow:3px 3px 0 var(--ink);text-decoration:none;font-weight:600;font-size:13px}
+  .btn:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink)}
+  .btn:active{transform:translate(3px,3px);box-shadow:none}
+  .btn.alt{background:var(--paper)}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+  /* about */
+  .about{display:grid;grid-template-columns:150px 1fr;gap:20px}
+  .avatar{width:150px;aspect-ratio:3/4;border:2px solid var(--ink);background:
+      repeating-linear-gradient(45deg,var(--bubble) 0 10px,#fbdade 10px 20px);display:grid;place-items:center;font-family:var(--serif);font-size:64px;font-style:italic;box-shadow:var(--shadow);position:relative}
+  .avatar small{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:var(--pixel);font-size:9px;font-style:normal}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+  .card{border:2px solid var(--ink);padding:12px;background:#fff}
+  .card b{font-family:var(--pixel);font-weight:400;font-size:11px;display:block;margin-bottom:4px}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .stat{border:2px solid var(--ink);padding:14px;background:var(--bg,#fff)}
+  .stat .n{font-family:var(--serif);font-size:52px;line-height:1}
+  .stat .l{font-family:var(--pixel);font-size:10px;margin-top:6px}
+  .meter{height:16px;border:2px solid var(--ink);margin-top:14px;background:#fff;overflow:hidden}
+  .meter i{display:block;height:100%;width:0;background:repeating-linear-gradient(90deg,var(--tomato) 0 8px,#e0646b 8px 10px);transition:width 1.6s steps(20)}
+
+  /* portfolio */
+  .reel{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px}
+  .clip{border:2px solid var(--ink);background:var(--c,#222);aspect-ratio:9/16;position:relative;overflow:hidden;cursor:pointer;text-decoration:none;color:var(--ink);display:block}
+  .clip:hover{transform:rotate(-1.5deg)}
+  .clip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .clip .rec,.clip .cap{z-index:1}
+  .clip .rec{position:absolute;top:8px;left:8px;font-family:var(--pixel);font-size:9px;display:flex;align-items:center;gap:4px;background:var(--paper);border:1.5px solid var(--ink);padding:1px 5px}
+  .clip .rec:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tomato)}
+  .clip .play{position:absolute;inset:0;display:grid;place-items:center}
+  .clip .play i{width:46px;height:46px;border:2px solid var(--ink);background:var(--paper);border-radius:50%;display:grid;place-items:center}
+  .clip .play i:after{content:"";border-left:14px solid var(--ink);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+  .clip .cap{position:absolute;left:0;right:0;bottom:0;background:var(--paper);border-top:2px solid var(--ink);padding:6px 8px;font-size:11.5px;line-height:1.3}
+  .clip .cap b{display:block;font-family:var(--pixel);font-weight:400;font-size:10px}
+  .clip .brackets:before,.clip .brackets:after{content:"";position:absolute;width:22px;height:22px;border:2px solid var(--paper)}
+  .clip .brackets:before{top:36px;right:10px;border-left:0;border-bottom:0}
+  .clip .brackets:after{bottom:66px;left:10px;border-right:0;border-top:0}
+  .note{font-size:12px;opacity:.75;margin-top:12px}
+
+  /* brands */
+  .apps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .app{border:2px solid var(--ink);padding:14px 12px;text-align:center;background:#fff}
+  .app .glyph{width:54px;height:54px;margin:0 auto 10px;border:2px solid var(--ink);border-radius:14px;display:grid;place-items:center;font-family:var(--serif);font-size:30px;box-shadow:3px 3px 0 var(--ink)}
+  .app b{font-family:var(--pixel);font-weight:400;font-size:11px;display:block}
+  .app small{font-size:11px;opacity:.7}
+  .slot{border-style:dashed;background:transparent;display:grid;place-items:center;font-size:12px;cursor:pointer}
+  .slot:hover{background:var(--butter)}
+
+  /* projects */
+  .proj{border:2px solid var(--ink);padding:14px;margin-bottom:12px;background:#fff;display:grid;grid-template-columns:44px 1fr;gap:12px}
+  .proj .pi{width:44px;height:44px;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--pixel);font-size:14px}
+  .proj b{font-size:14px}
+
+  /* terminal */
+  .term{background:#1c2419;color:#e4ecd6;font-family:var(--mono);font-size:13px;padding:14px;height:330px;overflow:auto;line-height:1.55}
+  .term .p{color:var(--butter)}
+  .term .o{color:#f6ead8;white-space:pre-wrap}
+  .term .err{color:#ff8f7a}
+  .term input{background:none;border:0;outline:none;color:#e4ecd6;font:inherit;width:70%;caret-color:var(--butter)}
+
+  /* brief form */
+  form.brief{display:grid;gap:12px}
+  form.brief label{font-family:var(--pixel);font-size:10.5px;display:grid;gap:5px}
+  form.brief input,form.brief select,form.brief textarea{font:inherit;font-size:13px;border:2px solid var(--ink);padding:8px 10px;background:#fff;width:100%}
+  form.brief textarea{min-height:90px;resize:vertical}
+  form.brief input:focus,form.brief select:focus,form.brief textarea:focus{outline:none;box-shadow:3px 3px 0 var(--lilac)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .toast{border:2px solid var(--ink);background:var(--mint);padding:10px 12px;font-size:12.5px;display:none}
+  .toast.show{display:block}
+
+  /* settings */
+  .walls{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:10px}
+  .walls button{aspect-ratio:4/3;border:2px solid var(--ink);cursor:pointer}
+  .walls button.on{outline:3px solid var(--tomato);outline-offset:2px}
+
+  /* resume */
+  .resume-doc{background:#fff;border:2px solid var(--ink);padding:22px 24px;box-shadow:var(--shadow)}
+  .resume-doc h3{font-family:var(--serif);font-weight:400;font-size:34px;margin:0}
+  .resume-doc hr{border:0;border-top:2px solid var(--ink);margin:12px 0}
+
+  /* trash */
+  .trash li{margin-bottom:6px}
+  .trash s{opacity:.6}
+
+  /* strawberry sweeper */
+  .sw-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;font-family:var(--pixel);font-size:12px}
+  .sw-top .lcd{background:var(--ink);color:#f6c6cc;padding:4px 8px;min-width:54px;text-align:center}
+  .sw-top button{border:2px solid var(--ink);background:var(--paper);cursor:pointer;padding:4px 8px;font-size:16px;box-shadow:2px 2px 0 var(--ink)}
+  .sw-top button.on{background:var(--mint);box-shadow:inset 2px 2px 0 var(--ink)}
+  .sw-board{display:grid;grid-template-columns:repeat(9,34px);gap:0;border:2px solid var(--ink);width:max-content;margin:0 auto;user-select:none;touch-action:manipulation}
+  .sw-board button{width:34px;height:34px;border:1px solid #1f275633;background:var(--butter);box-shadow:inset -3px -3px 0 #d9b878, inset 3px 3px 0 #fffaf0;cursor:pointer;font-family:var(--pixel);font-size:14px;padding:0;display:grid;place-items:center}
+  .sw-board button:hover{background:#f8ecc8}
+  .sw-board button.r{background:#fdf6ea;box-shadow:none;cursor:default}
+  .sw-board button.boom{background:var(--tomato)}
+  .sw-board .n1{color:#5f7a4a}.sw-board .n2{color:#1f2756}.sw-board .n3{color:#c8323b}.sw-board .n4{color:#7b3f8f}.sw-board .n5{color:#8a4b1f}.sw-board .n6,.sw-board .n7,.sw-board .n8{color:#1f2756}
+  .sw-msg{text-align:center;margin-top:10px;font-size:13px;min-height:20px}
+
+  /* study buddy */
+  .study{display:grid;grid-template-columns:210px 1fr;gap:16px}
+  .stage{border:2px solid var(--ink);height:210px;position:relative;overflow:hidden;background:
+      radial-gradient(ellipse at 50% 100%, #9fb487 0 34%, transparent 35%),
+      linear-gradient(180deg,#f6e3e3 0%,#fdf6ea 60%,#cddcbf 60%,#b5c99a 100%)}
+  .pethome{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);transition:width .4s}
+  .pethome svg{width:100%;height:auto;display:block}
+  .pethome.bounce{animation:hop .5s}
+  @keyframes hop{30%{transform:translate(-50%,-18px)}60%{transform:translate(-50%,0)}75%{transform:translate(-50%,-6px)}}
+  .speech{position:absolute;top:8px;left:8px;right:8px;background:#fff;border:2px solid var(--ink);padding:5px 8px;font-size:12px;line-height:1.35;min-height:20px}
+  .speech:empty{display:none}
+  .petname{font-family:var(--serif);font-size:30px;line-height:1;outline:none;border-bottom:2px dashed transparent}
+  .petname:focus{border-bottom-color:var(--ink)}
+  .petsub{font-family:var(--pixel);font-size:10px;margin:2px 0 12px}
+  .barl{font-family:var(--pixel);font-size:10px;display:flex;justify-content:space-between;margin-top:8px}
+  .pbar{height:14px;border:2px solid var(--ink);background:#fff;margin-top:3px}
+  .pbar i{display:block;height:100%;transition:width .4s}
+  .btn.sm{padding:5px 10px;font-size:12px;box-shadow:2px 2px 0 var(--ink)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+  .berries{font-family:var(--pixel);font-size:12px;border:2px solid var(--ink);padding:4px 8px;background:#fff}
+  .focusbox{border:2px solid var(--ink);margin-top:16px;padding:14px;background:#fff;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+  .clockface{font-family:var(--pixel);font-size:40px;line-height:1;padding:10px 12px;background:var(--ink);color:#f6c6cc;min-width:150px;text-align:center}
+  .clockface small{display:block;font-size:10px;color:#cddcbf;margin-top:6px}
+  .presets button{border:2px solid var(--ink);background:var(--paper);padding:4px 9px;cursor:pointer;font-size:12px}
+  .presets button.on{background:var(--mint)}
+  .studystats{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+  /* desktop pet */
+  .deskpet{position:fixed;bottom:50px;left:40px;width:58px;z-index:4999;cursor:pointer;user-select:none}
+  .deskpet .body{transform-origin:50% 100%}
+  .deskpet .body svg{width:58px;height:auto;display:block;filter:drop-shadow(2px 2px 0 #1f275655)}
+  .deskpet.walk .body{animation:bob .36s steps(2) infinite}
+  @keyframes bob{50%{transform:translateY(-3px)}}
+  .deskpet.hop .body{animation:dhop .5s}
+  @keyframes dhop{40%{transform:translateY(-22px)}}
+  .deskpet .say{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:4px;background:#fff;border:2px solid var(--ink);padding:4px 8px;font-size:11.5px;white-space:nowrap;display:none;box-shadow:2px 2px 0 var(--ink)}
+  .deskpet .say.show{display:block}
+  .heart{position:fixed;z-index:5002;pointer-events:none;font-size:16px;animation:floatup 1s forwards}
+  @keyframes floatup{to{transform:translateY(-40px);opacity:0}}
+  @media (max-width:720px){
+    .study,.focusbox{grid-template-columns:1fr}
+    .clockface{min-width:0}
+    .sw-board{grid-template-columns:repeat(9,32px)}
+    .sw-board button{width:32px;height:32px}
+  }
+
+  /* taskbar */
+  .taskbar{position:fixed;left:0;right:0;bottom:0;height:52px;background:var(--paper);border-top:2px solid var(--ink);display:flex;align-items:center;gap:8px;padding:0 10px;z-index:5000}
+  .start{font-family:var(--pixel);font-size:12px;border:2px solid var(--ink);background:var(--tomato);color:var(--paper);padding:7px 12px;cursor:pointer;box-shadow:3px 3px 0 var(--ink);display:flex;gap:7px;align-items:center}
+  .start:active{transform:translate(3px,3px);box-shadow:none}
+  .tasks{display:flex;gap:6px;overflow-x:auto;flex:1}
+  .task{border:2px solid var(--ink);background:#fff;padding:6px 10px;font-size:12px;cursor:pointer;white-space:nowrap;max-width:170px;overflow:hidden;text-overflow:ellipsis}
+  .task.on{background:var(--lilac);box-shadow:inset 2px 2px 0 var(--ink)}
+  .clock{font-family:var(--pixel);font-size:11px;border:2px solid var(--ink);padding:6px 10px;background:#fff;white-space:nowrap}
+
+  .startmenu{position:fixed;bottom:58px;left:10px;width:260px;background:var(--paper);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);z-index:5001;display:none}
+  .startmenu.open{display:flex}
+  .startmenu .side{writing-mode:vertical-rl;transform:rotate(180deg);background:var(--ink);color:var(--butter);font-family:var(--pixel);font-size:13px;padding:10px 6px;text-align:left}
+  .startmenu ul{list-style:none;margin:0;padding:6px;flex:1}
+  .startmenu li button{width:100%;text-align:left;background:none;border:0;padding:8px 10px;cursor:pointer;font-size:13px;display:flex;gap:10px;align-items:center}
+  .startmenu li button:hover{background:var(--lilac)}
+  .startmenu hr{border:0;border-top:2px dashed #1f275644;margin:4px 0}
+
+  /* mobile */
+  @media (max-width:720px){
+    html,body{overflow:auto}
+    .menubar .hide-sm{display:none}
+    .icons{position:static;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:row;grid-template-rows:none;height:auto;padding:18px 10px;gap:10px}
+    .icon{width:auto}
+    .icon img,.icon svg{width:62px;height:62px}
+    .icon span{font-size:12.5px}
+    .sticky{position:relative;top:auto;right:auto;margin:6px auto 30px;transform:rotate(-1.5deg);cursor:default}
+    #desktop{overflow:auto}
+    .wallmark{position:fixed}
+    .win{position:fixed!important;left:8px!important;right:8px;top:42px!important;bottom:60px;width:auto!important;height:auto!important;min-width:0;max-height:none}
+    .titlebar{cursor:default}
+    .content{flex:1}
+    .about{grid-template-columns:1fr}
+    .avatar{width:120px}
+    .stats,.apps{grid-template-columns:1fr 1fr}
+    .split,.two{grid-template-columns:1fr}
+    .walls{grid-template-columns:repeat(2,1fr)}
+    .clock{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body class="wp-collage">
+
+<!-- ========== BOOT ========== -->
+<div id="boot" aria-live="polite">
+  <button class="skip" id="skipBoot">skip ▸</button>
+  <div class="logo">NaveiniOS</div>
+  <div id="bootLines"></div>
+  <div class="bar"><i id="bootBar"></i></div>
+</div>
+
+<!-- ========== MENU BAR ========== -->
+<header class="menubar">
+  <div class="brand"><b></b>NaveiniOS</div>
+  <button class="mi hide-sm" data-open="about">About</button>
+  <button class="mi hide-sm" data-open="portfolio">Work</button>
+  <button class="mi hide-sm" data-open="press">Press</button>
+  <button class="mi hide-sm" data-open="projects">Code</button>
+  <button class="mi hide-sm" data-open="brief">Contact</button>
+  <div class="spacer"></div>
+  <div class="status"><span class="dot"></span><span class="hide-sm">open to brand deals + internships</span></div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-stars" aria-hidden="true">
-    <span class="star s1">★</span><span class="star s2">★</span><span class="star s3">★</span>
-    <span class="star s4">★</span><span class="star s5">★</span>
-  </div>
-  <div class="hero-inner">
-    <p class="pill"><span class="dot"></span> CS Student, Content Creator</p>
-    <h1>Hi, I'm Naveini.<br><em>I create.</em></h1>
-    <p class="hero-sub">
-      Computer Science student and content creator at Queen's University, specializing in security, with a minor in Economics.
-      I document the journey — from late night study sessions, my matcha order to the projects and ideas that come out of it.
-    </p>
-    <div class="hero-row">
-      <div class="hero-cta">
-        <a href="#work" class="btn btn-primary">See My Work →</a>
-        <a href="#about" class="btn btn-ghost">About Me</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num">20M+</span><span class="stat-label">Total Views</span></div>
-        <div class="stat"><span class="stat-num">1.9M</span><span class="stat-label">Likes</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ========== DESKTOP ========== -->
+<main id="desktop">
+  <div class="wallmark">Naveini<br>Vasikaran</div>
 
-<!-- ============ ABOUT ============ -->
-<section class="about" id="about">
-  <div class="about-grid">
-    <div class="about-photo">
-      <div class="photo-placeholder"><img src="naveini-photo.jpg" alt="Naveini Vasikaran"></div>
-      <div class="photo-badge"><span class="badge-num">2+</span><span class="badge-label">Years Creating</span></div>
-    </div>
-    <div class="about-text">
-      <p class="eyebrow">01 — About</p>
-      <h2>The person behind<br><em>the content.</em></h2>
-      <p>
-        I'm a Computer Science student at Queen's University specializing in security, with a minor in Economics. I chose to
-        study CS because of my passion for creating — whether that's building my own website or shooting
-        advertisements for companies. I started making content to share what that actually looks like day-to-day —
-        the coursework, the projects, the wins and the grind.
-      </p>
-      <p>
-        My approach is simple: show the real process, not a highlight reel.
-      </p>
-      <p>
-        One of my favorite collabs so far: partnering with <strong>Lay Low Cafe</strong> in Kingston on my
-        own drink, "Naveini's Matcha." <a href="#charity">Read the full story ↓</a>
-      </p>
-      <div class="tag-row">
-        <span class="tag">matcha</span>
-        <span class="tag">CS</span>
-        <span class="tag">Campus Life</span>
-      </div>
-    </div>
-  </div>
-</section>
+  <nav class="icons" aria-label="Desktop">
+    <button class="icon" data-open="about">
+      <img src="icon-lily.png" alt="">
+      <span>about_me.txt</span></button>
+    <button class="icon" data-open="portfolio">
+      <img src="icon-folder.png" alt="">
+      <span>UGC Portfolio</span></button>
+    <button class="icon" data-open="stats">
+      <img src="icon-fox.png" alt="">
+      <span>stats.exe</span></button>
+    <button class="icon" data-open="brands">
+      <img src="icon-hibiscus.png" alt="">
+      <span>Brands.app</span></button>
+    <button class="icon" data-open="press">
+      <img src="icon-stamp.png" alt="">
+      <span>press</span></button>
+    <button class="icon" data-open="laylow">
+      <img src="icon-laylow.png" alt="">
+      <span>lay_low ×<br>naveini</span></button>
+    <button class="icon" data-open="projects">
+      <img src="icon-code.png" alt="">
+      <span>code_projects</span></button>
+    <button class="icon" data-open="terminal">
+      <img src="icon-blossom.png" alt="">
+      <span>terminal</span></button>
+    <button class="icon" data-open="resume">
+      <img src="icon-grad.png" alt="">
+      <span>resume.pdf</span></button>
+    <button class="icon" data-open="brief">
+      <img src="icon-seal.png" alt="">
+      <span>send_a_brief</span></button>
+    <button class="icon" data-open="study">
+      <img src="icon-apple.png" alt="">
+      <span>study_buddy</span></button>
+    <button class="icon" data-open="sweeper">
+      <svg viewBox="0 0 48 48"><path d="M24 44C10 36 8 22 12 16q12-6 24 0c4 6 2 20-12 28z" fill="#c8323b" stroke="#1f2756" stroke-width="3" stroke-linejoin="round"/><path d="M24 14l-9-6 5 8-8 0 12 2 12-2-8 0 5-8z" fill="#5f7a4a" stroke="#1f2756" stroke-width="2.5" stroke-linejoin="round"/><g fill="#fdf6ea"><circle cx="18" cy="24" r="1.4"/><circle cx="26" cy="22" r="1.4"/><circle cx="31" cy="28" r="1.4"/><circle cx="21" cy="31" r="1.4"/><circle cx="27" cy="35" r="1.4"/></g></svg>
+      <span>strawberry sweeper</span></button>
+    <button class="icon" data-open="settings">
+      <img src="icon-swan.png" alt="">
+      <span>wallpaper</span></button>
+    <button class="icon" data-open="trash">
+      <svg viewBox="0 0 48 48"><path d="M10 14h28l-3 30H13z" fill="#fffaf0" stroke="#1f2756" stroke-width="3" stroke-linejoin="round"/><path d="M6 14h36M18 8h12v6" stroke="#1f2756" stroke-width="3" fill="none"/><path d="M19 20v18M29 20v18" stroke="#1f2756" stroke-width="2"/></svg>
+      <span>trash</span></button>
+  </nav>
 
-<!-- ============ MATCHA COLLAB ============ -->
-<section class="charity" id="charity">
-  <div class="about-grid">
-    <div class="matcha-sticker">
-      <img src="laylow-matcha.png" alt="Lay Low x Naveini matcha sticker">
-    </div>
-    <div class="about-text">
-      <p class="eyebrow">Community Collab</p>
-      <h2>Lay Low x<br><em>naveini.</em></h2>
-      <p>
-        In 2025, I partnered with <strong>Lay Low Cafe</strong> in Kingston to launch my own drink on the
-        menu — "Naveini's Matcha." I led the campaign from concept to execution: planning, stakeholder
-        communication, and promoting it across my platforms, which drove 100,000+ views and strong student
-        engagement.
-      </p>
-      <p>
-        Every purchase gave back — the campaign raised and donated <strong>$1,000+</strong> to
-        <strong>Sexual Assault Centre Kingston (SAC Kingston)</strong>. It's one of the collabs I'm proudest
-        of, because it turned something I love making into real support for my community.
-      </p>
-      <a href="https://www.sackingston.com/donate" class="btn btn-primary" target="_blank" rel="noopener">Donate to SAC Kingston →</a>
-    </div>
-  </div>
-</section>
+  <aside class="sticky" id="sticky">
+    <h3>hi, I'm Naveini</h3>
+    <em>(Na-vin-e)</em>
+    <p style="margin:8px 0 0">I make content brands love and code recruiters notice. Click around, it's my computer. ✿</p>
+  </aside>
+</main>
 
-<!-- ============ PRESS ============ -->
-<section class="press" id="press">
-  <div class="section-head">
-    <p class="eyebrow">02 — Press &amp; Features</p>
-    <h2>As seen<br><em>in.</em></h2>
-  </div>
-  <div class="press-list">
-    <!-- EDIT ME: duplicate a .press-row per feature -->
-    <a href="https://www.elle.com/beauty/health-fitness/a63787623/ozempic-secret-college-campuses-trend-explained/" class="press-row" target="_blank" rel="noopener">
-      <div class="press-thumb"><img src="elle-logo.png" alt="Elle logo"></div>
-      <div class="press-info">
-        <span class="press-outlet">Elle <span class="press-tag">Interview</span></span>
-        <h3>Ozempic Has Hit College Campuses, But No One Is Talking About It</h3>
-      </div>
-      <span class="press-date">March 2025 ↗</span>
-    </a>
-    <a href="https://www.myams.org/a-matcha-made-in-heaven-queens-student-partners-with-local-kingston-cafe-to-support-sexual-assault-centre-kingston/" class="press-row" target="_blank" rel="noopener">
-      <div class="press-thumb"><img src="ams-logo.png" alt="AMS Queen's logo"></div>
-      <div class="press-info">
-        <span class="press-outlet">AMS Queen's <span class="press-tag press-tag-alt">Feature</span></span>
-        <h3>A Matcha Made in Heaven: Queen's Student Partners with Local Kingston Cafe to Support Sexual Assault Centre Kingston</h3>
-      </div>
-      <span class="press-date">October 2025 ↗</span>
-    </a>
-  </div>
-</section>
+<!-- ========== START MENU ========== -->
+<div class="startmenu" id="startmenu">
+  <div class="side">NaveiniOS v2.0</div>
+  <ul>
+    <li><button data-open="about">📄 About me</button></li>
+    <li><button data-open="portfolio">🎬 UGC portfolio</button></li>
+    <li><button data-open="stats">📈 Stats</button></li>
+    <li><button data-open="brands">✨ Brands</button></li>
+    <li><button data-open="press">📰 Press</button></li>
+    <li><button data-open="laylow">🍵 Lay Low × Naveini</button></li>
+    <li><button data-open="services">🎥 Services</button></li>
+    <li><button data-open="projects">💻 Code projects</button></li>
+    <li><button data-open="terminal">⌨️ Terminal</button></li>
+    <li><button data-open="resume">📎 Resume</button></li>
+    <li><button data-open="study">🐰 Study buddy</button></li>
+    <li><button data-open="sweeper">🍓 Strawberry sweeper</button></li>
+    <hr>
+    <li><button data-open="brief">💌 Send a brief</button></li>
+    <li><button id="tidy">🧹 Close all windows</button></li>
+  </ul>
+</div>
 
-<!-- ============ SOCIALS ============ -->
-<section class="socials-section" id="socials">
-  <div class="section-head">
-    <p class="eyebrow">03 — Find Me Online</p>
-    <h2>Let's<br><em>connect.</em></h2>
-  </div>
-  <div class="socials-grid">
-    <a href="https://www.tiktok.com/@naveini" target="_blank" rel="noopener" class="social-card">
-      <div class="social-top"><span class="social-icon">♪</span><span class="social-arrow">↗</span></div>
-      <h3>TikTok <span class="handle">@naveini</span></h3>
-      <p>Short-form videos on CS, lifestyle, beauty and student life — behind-the-scenes of the creator life.</p>
-      <span class="social-stat">10M+ views</span>
-    </a>
-    <a href="https://www.instagram.com/naveiniv" target="_blank" rel="noopener" class="social-card">
-      <div class="social-top"><span class="social-icon">◎</span><span class="social-arrow">↗</span></div>
-      <h3>Instagram <span class="handle">@naveiniv</span></h3>
-      <p>Curated feed, stories, and Reels. A mix of content, campus life, and daily life.</p>
-      <span class="social-stat">1.5K+ followers</span>
-    </a>
-  </div>
-</section>
-
-<!-- ============ RESUME ============ -->
-<section class="resume" id="resume">
-  <div class="section-head">
-    <p class="eyebrow">Resume</p>
-    <h2>My<br><em>resume.</em></h2>
-    <p class="section-sub">Coursework, projects, and experience — download the full PDF.</p>
-    <!-- EDIT ME: add resume.pdf to this project folder to make this link work -->
-    <a href="resume.pdf" class="btn btn-primary" download style="margin-top: 1.5rem; display: inline-block;">Download Resume →</a>
-  </div>
-</section>
-
-<!-- ============ UGC WORK ============ -->
-<section class="work" id="work">
-  <div class="section-head">
-    <p class="eyebrow">UGC Portfolio</p>
-    <h2>Content that<br><em>converts.</em></h2>
-    <p class="section-sub">20M+ views across TikTok and Instagram. Every video is scripted, shot, and edited by me.</p>
-  </div>
-
-  <div class="filter-bar" id="filterBar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="tiktok">TikTok</button>
-    <button class="filter-btn" data-filter="instagram">Instagram</button>
-  </div>
-
-  <div class="work-grid" id="workGrid">
-    <!-- EDIT ME: duplicate a .work-card per project — placeholder until you add a real project -->
-    <article class="work-card" data-category="tiktok">
-      <div class="work-media"><img src="work-amazon.jpg" alt="Amazon Prime Welcome Box unboxing TikTok"><span class="platform-badge">TikTok</span></div>
-      <div class="work-info">
-        <span class="work-eyebrow">TikTok</span>
-        <h3>Amazon</h3>
-        <span class="work-views">100K+</span>
-      </div>
-    </article>
-    <article class="work-card" data-category="tiktok">
-      <div class="work-media"><img src="work-chiquita.jpg" alt="Chiquita TikTok"><span class="platform-badge">TikTok</span></div>
-      <div class="work-info">
-        <span class="work-eyebrow">TikTok</span>
-        <h3>Chiquita</h3>
-        <span class="work-views">100K+</span>
-      </div>
-    </article>
-    <article class="work-card" data-category="tiktok">
-      <div class="work-media"><img src="work-jacandjills.jpg" alt="Jac and Jill's Bakeshop TikTok"><span class="platform-badge">TikTok</span></div>
-      <div class="work-info">
-        <span class="work-eyebrow">TikTok</span>
-        <h3>Jac and Jill's Bakeshop</h3>
-        <span class="work-views">100K+</span>
-      </div>
-    </article>
-    <article class="work-card" data-category="instagram">
-      <div class="work-media"><img src="work-bubba.jpg" alt="Bubba water bottle Instagram brand deal"><span class="platform-badge">Instagram</span></div>
-      <div class="work-info">
-        <span class="work-eyebrow">Instagram</span>
-        <h3>Bubba</h3>
-        <span class="work-views">100K+</span>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section class="services">
-  <div class="section-head">
-    <p class="eyebrow">Services</p>
-    <h2>What I<br><em>create.</em></h2>
-  </div>
-  <div class="services-grid">
-    <div class="service">
-      <span class="service-num">01</span>
-      <h3>Short-Form Video</h3>
-      <p>TikToks and Reels that stop the scroll. Raw, native, platform-perfect.</p>
-      <span class="service-meta">From scripting to final edit</span>
-    </div>
-    <div class="service">
-      <span class="service-num">02</span>
-      <h3>Unboxing &amp; Reviews</h3>
-      <p>Honest, first-impression content for product drops and PR boxes.</p>
-      <span class="service-meta">Unboxings, try-ons, reviews</span>
-    </div>
-    <div class="service">
-      <span class="service-num">03</span>
-      <h3>Food Reviews</h3>
-      <p>Honest takes on cafes, bakeries, and local spots — shot on location, no script.</p>
-      <span class="service-meta">Cafes, bakeries, local eats</span>
-    </div>
-    <div class="service">
-      <span class="service-num">04</span>
-      <h3>Campaign Concepting</h3>
-      <p>Brief-to-brief partnership consulting to help brands find the angle that actually converts.</p>
-      <span class="service-meta">Strategy &amp; concept development</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TRUSTED BY ============ -->
-<section class="trusted">
-  <p class="eyebrow">Trusted By</p>
-  <div class="trusted-row">
-    <!-- EDIT ME: your real past brand partners — placeholders until you add real ones -->
-    <span class="chip">Amazon</span>
-    <span class="chip">Chiquita</span>
-    <span class="chip">Bubba</span>
-    <span class="chip">Celsius</span>
-  </div>
-</section>
-
-<!-- ============ CONTACT ============ -->
-<section class="contact" id="contact">
-  <div class="contact-solo">
-    <p class="eyebrow">04 — Let's Create</p>
-    <h2>Ready to<br><em>collab?</em></h2>
-    <p>
-      Reach out and let's see if we're a fit.
-    </p>
-    <div class="contact-details">
-      <!-- EDIT ME: your real contact info -->
-      <p><span>Email</span> ugcnaveini@gmail.com</p>
-      <p><span>Instagram</span> @naveiniv</p>
-      <p><span>TikTok</span> @naveini</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer class="footer">
-  <span class="nav-logo">naveini <span class="accent">vasikaran</span></span>
-  <p>© 2026 · Content Creator &amp; Strategist</p>
-  <div class="footer-links">
-    <a href="https://www.tiktok.com/@naveini" target="_blank" rel="noopener">TikTok</a>
-    <a href="https://www.instagram.com/naveiniv" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://www.linkedin.com/in/naveiniv/" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
+<!-- ========== TASKBAR ========== -->
+<footer class="taskbar">
+  <button class="start" id="startBtn" aria-expanded="false"><span>✿</span>start</button>
+  <div class="tasks" id="tasks"></div>
+  <div class="clock" id="clock">--:--</div>
 </footer>
 
-<script src="script.js"></script>
+<!-- ========== WINDOW TEMPLATES ========== -->
+<template id="tpl-about">
+  <div class="about">
+    <div class="avatar" style="background:url('me.jpg') center/cover"></div>
+    <div>
+      <h2>Content creator <i>&amp;</i> computer scientist.</h2>
+      <p>I'm a Computer Science student at Queen's University specializing in security, with a minor in Economics. I chose CS because I love creating, whether that's building this website or shooting ads for brands.</p>
+      <p>I make content about what that actually looks like day to day: the coursework, the projects, my matcha order, the wins and the grind. My approach is simple: show the real process, not a highlight reel.</p>
+      <div class="split">
+        <div class="card"><b>FOR BRANDS ✦</b>20M+ views. Every video scripted, shot and edited by me. Short-form, unboxings, food reviews, campaign concepting.</div>
+        <div class="card"><b>FOR RECRUITERS ✦</b>Queen's CS (security) + Economics minor. Led a $1,000+ charity campaign and founding an interview-prep club.</div>
+      </div>
+      <h4>FIND ME</h4>
+      <a class="tag" href="https://www.tiktok.com/@naveini" target="_blank" rel="noopener">♪ TikTok @naveini</a><a class="tag" href="https://www.instagram.com/naveiniv" target="_blank" rel="noopener">◎ Instagram @naveiniv</a><a class="tag" href="https://www.linkedin.com/in/naveiniv/" target="_blank" rel="noopener">in LinkedIn</a><span class="tag">📍 Kingston, ON</span>
+      <div class="row" style="margin-top:12px">
+        <button class="btn" data-open="portfolio">See my work →</button>
+        <button class="btn alt" data-open="press">Press</button>
+        <button class="btn alt" data-open="resume">Resume</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-stats">
+  <div class="stats">
+    <div class="stat" style="--bg:var(--butter)"><div class="n" data-count="20" data-suffix="M+">0</div><div class="l">TOTAL VIEWS</div></div>
+    <div class="stat" style="--bg:var(--mint)"><div class="n" data-count="7" data-suffix="K">0</div><div class="l">TIKTOK FOLLOWERS</div></div>
+    <div class="stat" style="--bg:var(--bubble)"><div class="n" data-count="1.9" data-suffix="M">0</div><div class="l">LIKES</div></div>
+  </div>
+  <h4>BUILDING MY AUDIENCE…</h4>
+  <div class="meter"><i id="meter"></i></div>
+  <p class="note">Followers as of Nov 2026, still growing ↑</p>
+</template>
+
+<template id="tpl-portfolio">
+  <p>20M+ views across TikTok and Instagram. Every video is scripted, shot and edited by me.</p>
+  <div class="reel">
+    <div class="clip" style="--c:#fdf6ea">
+      <img src="work-amazon.jpg" alt="Amazon TikTok video" loading="lazy">
+      <span class="rec">TikTok</span><span class="brackets"></span>
+      <span class="cap"><b>AMAZON</b>100K+ views</span></div>
+    <div class="clip" style="--c:#fdf6ea">
+      <img src="work-chiquita.jpg" alt="Chiquita TikTok video" loading="lazy">
+      <span class="rec">TikTok</span><span class="brackets"></span>
+      <span class="cap"><b>CHIQUITA</b>100K+ views</span></div>
+    <div class="clip" style="--c:#fdf6ea">
+      <img src="work-jacandjills.jpg" alt="Jac and Jill's TikTok video" loading="lazy">
+      <span class="rec">TikTok</span><span class="brackets"></span>
+      <span class="cap"><b>JAC AND JILL'S</b>100K+ views</span></div>
+    <div class="clip" style="--c:#fdf6ea">
+      <img src="work-bubba.jpg" alt="Bubba Instagram video" loading="lazy">
+      <span class="rec">Instagram</span><span class="brackets"></span>
+      <span class="cap"><b>BUBBA</b>100K+ views</span></div>
+  </div>
+  <div class="row" style="margin-top:16px">
+    <a class="btn" href="https://www.tiktok.com/@naveini" target="_blank" rel="noopener">Watch more on TikTok ↗</a>
+    <button class="btn alt" data-open="services">Services</button>
+    <button class="btn alt" data-open="brief">Work with me</button>
+  </div>
+</template>
+
+<template id="tpl-brands">
+  <p>Brands I've partnered with:</p>
+  <div class="apps">
+    <div class="app"><div class="glyph" style="background:#fff">S</div><b>SONY</b><small>camera content</small></div>
+    <div class="app"><div class="glyph" style="background:var(--butter)">a</div><b>AMAZON</b><small>unboxing</small></div>
+    <div class="app"><div class="glyph" style="background:var(--bubble)">♠</div><b>KATE SPADE</b><small>style</small></div>
+    <div class="app"><div class="glyph" style="background:var(--butter)">C</div><b>CHIQUITA</b><small>food</small></div>
+    <div class="app"><div class="glyph" style="background:var(--sky)">B</div><b>BUBBA</b><small>lifestyle</small></div>
+    <div class="app"><div class="glyph" style="background:var(--mint)">⚡</div><b>CELSIUS</b><small>energy</small></div>
+    <div class="app"><div class="glyph" style="background:var(--bubble)">J</div><b>JAC &amp; JILL'S</b><small>local bakery</small></div>
+    <div class="app"><div class="glyph" style="background:var(--mint)">🍵</div><b>LAY LOW</b><small>charity collab</small></div>
+    <button class="app slot" data-open="brief">+ your brand<br>here?</button>
+  </div>
+</template>
+
+<template id="tpl-press">
+  <a class="proj" style="text-decoration:none" href="https://www.elle.com/beauty/health-fitness/a63787623/ozempic-secret-college-campuses-trend-explained/" target="_blank" rel="noopener">
+    <div class="pi" style="background:#fff;padding:0;overflow:hidden"><img src="elle-logo.png" alt="Elle" style="width:100%;height:100%;object-fit:contain"></div>
+    <div><span class="tag">ELLE · Interview · Mar 2025</span><br><b>Ozempic Has Hit College Campuses, But No One Is Talking About It ↗</b></div>
+  </a>
+  <a class="proj" style="text-decoration:none" href="https://www.myams.org/a-matcha-made-in-heaven-queens-student-partners-with-local-kingston-cafe-to-support-sexual-assault-centre-kingston/" target="_blank" rel="noopener">
+    <div class="pi" style="background:#fff;padding:0;overflow:hidden"><img src="ams-logo.png" alt="AMS Queen's" style="width:100%;height:100%;object-fit:contain"></div>
+    <div><span class="tag">AMS Queen's · Feature · Oct 2025</span><br><b>A Matcha Made in Heaven: Queen's Student Partners with Local Kingston Cafe to Support Sexual Assault Centre Kingston ↗</b></div>
+  </a>
+</template>
+
+<template id="tpl-laylow">
+  <div class="about">
+    <div><img src="laylow-matcha.png" alt="Lay Low x Naveini matcha sticker" style="width:100%;border:2px solid var(--ink);box-shadow:var(--shadow);background:#fff"></div>
+    <div>
+      <h2>Lay Low <i>×</i> naveini.</h2>
+      <p>In 2025 I partnered with <b>Lay Low Cafe</b> in Kingston to launch my own drink on the menu, "Naveini's Matcha." I led the campaign from concept to execution: planning, stakeholder communication, and promotion across my platforms. It drove <b>100,000+ views</b> and strong student engagement.</p>
+      <p>Every purchase gave back. The campaign raised and donated <b>$1,000+</b> to <b>Sexual Assault Centre Kingston</b>.</p>
+      <div class="row"><a class="btn" href="https://www.sackingston.com/donate" target="_blank" rel="noopener">Donate to SAC Kingston ↗</a><button class="btn alt" data-open="press">Read the feature</button></div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-services">
+  <div class="proj"><div class="pi" style="background:var(--bubble)">01</div><div><b>Short-form video</b><p style="margin:4px 0 0">TikToks and Reels that stop the scroll. Raw, native, platform-perfect. From scripting to final edit.</p></div></div>
+  <div class="proj"><div class="pi" style="background:var(--butter)">02</div><div><b>Unboxing &amp; reviews</b><p style="margin:4px 0 0">Honest, first-impression content for product drops and PR boxes.</p></div></div>
+  <div class="proj"><div class="pi" style="background:var(--mint)">03</div><div><b>Food reviews</b><p style="margin:4px 0 0">Honest takes on cafes, bakeries and local spots, shot on location.</p></div></div>
+  <div class="proj"><div class="pi" style="background:var(--lilac)">04</div><div><b>Campaign concepting</b><p style="margin:4px 0 0">Partnership consulting to help brands find the angle that actually converts.</p></div></div>
+  <div class="row"><button class="btn" data-open="brief">Send a brief ✉</button></div>
+</template>
+
+<template id="tpl-projects">
+  <div class="proj">
+    <div class="pi" style="background:var(--mint)">&lt;/&gt;</div>
+    <div><b>SWE interview prep club · Queen's</b><p style="margin:4px 0 6px">Founding a student club that prepares Queen's students for technical software engineering internship interviews.</p><span class="tag">leadership</span><span class="tag">DSA</span><span class="tag">community</span></div>
+  </div>
+  <div class="proj">
+    <div class="pi" style="background:var(--lilac)">OS</div>
+    <div><b>NaveiniOS (this website)</b><p style="margin:4px 0 6px">A portfolio built as a tiny operating system: draggable windows, a working terminal, a start menu. Plain HTML, CSS and JavaScript with no framework.</p><span class="tag">JavaScript</span><span class="tag">UI design</span>
+      <div style="margin-top:6px"><a href="https://github.com/naveiniv" target="_blank" rel="noopener">github.com/naveiniv ↗</a></div></div>
+  </div>
+  <div class="proj">
+    <div class="pi" style="background:var(--butter)">+</div>
+    <div><b>Next project loading…</b><p style="margin:4px 0 0">Add your class or hackathon projects here.</p></div>
+  </div>
+</template>
+
+<template id="tpl-terminal">
+  <div class="term" id="term">
+    <div class="o">NaveiniOS terminal v2.0. Type <span class="p">help</span> to get started.</div>
+  </div>
+</template>
+
+<template id="tpl-resume">
+  <div class="resume-doc">
+    <h3>Naveini Vasikaran</h3>
+    <div style="font-size:12px">Kingston, ON · <a href="https://www.linkedin.com/in/naveiniv/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/naveiniv" target="_blank" rel="noopener">GitHub</a> · TikTok @naveini</div>
+    <hr>
+    <b>EDUCATION</b>
+    <p>Queen's University: Bachelor of Computing (Honours), Computer Science, security specialization, minor in Economics. Sep 2024 – Apr 2029</p>
+    <b>EXPERIENCE</b>
+    <p>UGC Content Creator, self-employed: 20M+ views, 1.9M likes; partnerships with Sony, Amazon, Kate Spade, Chiquita, Bubba and more</p>
+    <p>Campaign lead, Lay Low × Naveini: launched a cafe drink that raised $1,000+ for SAC Kingston</p>
+    <b>LEADERSHIP</b>
+    <p>Founder, SWE interview prep club, Queen's University</p>
+  </div>
+  <div class="row" style="margin-top:16px">
+    <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Open full resume (PDF) ↗</a>
+    <a class="btn alt" href="resume.pdf" download>Download</a>
+  </div>
+</template>
+
+<template id="tpl-brief">
+  <form class="brief" id="briefForm">
+    <p style="margin:0">Have a campaign in mind? Send a quick brief and I'll get back to you.</p>
+    <div class="two">
+      <label>YOUR NAME<input name="name" required></label>
+      <label>BRAND / COMPANY<input name="brand" required></label>
+    </div>
+    <div class="two">
+      <label>YOUR EMAIL<input type="email" name="email" required></label>
+      <label>I'M A…
+        <select name="type"><option>Brand / agency</option><option>Recruiter</option><option>Just saying hi</option></select></label>
+    </div>
+    <label>WHAT'S THE IDEA?<textarea name="msg" required placeholder="Product, deliverables, timeline, budget…"></textarea></label>
+    <div class="row">
+      <button class="btn" type="submit">Send brief ✉</button>
+      <button class="btn alt" type="button" id="copyEmail">Copy email</button>
+      <span style="font-size:12px">ugcnaveini@gmail.com</span>
+    </div>
+    <div class="toast" id="briefToast"></div>
+  </form>
+</template>
+
+<template id="tpl-settings">
+  <p>Pick a wallpaper:</p>
+  <div class="walls">
+    <button data-wp="wp-collage" title="Moodboard" style="background:url('wallpaper.jpg') center/cover"></button>
+    <button data-wp="wp-grid" title="Dot grid" style="background:radial-gradient(circle at 1px 1px,#1f275633 1px,transparent 1.5px) 0 0/8px 8px,#f3e9d6"></button>
+    <button data-wp="wp-sunset" title="Sunset" style="background:linear-gradient(180deg,#ffb38a,#ff7aa8,#7b5cff)"></button>
+    <button data-wp="wp-check" title="Checker" style="background:conic-gradient(#d9ccff 25%,#fff3d6 0 50%,#d9ccff 0 75%,#fff3d6 0) 0 0/16px 16px"></button>
+    <button data-wp="wp-night" title="Night" style="background:#17132a"></button>
+  </div>
+</template>
+
+<template id="tpl-trash">
+  <ul class="trash">
+    <li><s>posting without a hook</s></li>
+    <li><s>git push to master</s></li>
+    <li><s>boring portfolio websites</s></li>
+    <li><s>"I'll edit it tomorrow"</s></li>
+  </ul>
+  <p class="note">Trash is full of bad ideas. Emptying it is not recommended.</p>
+</template>
+
+<template id="tpl-sweeper">
+  <div class="sw-top">
+    <span class="lcd" id="swLeft">🍓 10</span>
+    <button id="swReset" title="New game">🐰</button>
+    <button id="swFlag" title="Leaf mode: tap to mark a strawberry">🌿</button>
+    <span class="lcd" id="swTime">000</span>
+  </div>
+  <div class="sw-board" id="swBoard"></div>
+  <div class="sw-msg" id="swMsg">10 strawberries are hiding. Don't squish them! Right-click (or long-press, or 🌿 mode) to mark one with a leaf.</div>
+</template>
+
+<template id="tpl-study">
+  <div class="study">
+    <div class="stage"><div class="speech" id="petSay"></div><div class="pethome" id="petHome"></div></div>
+    <div>
+      <div class="petname" id="petName" contenteditable="true" spellcheck="false" title="Click to rename"></div>
+      <div class="petsub" id="petStage"></div>
+      <div class="barl"><span>FULLNESS</span><span id="fullN"></span></div>
+      <div class="pbar"><i id="barFull" style="background:var(--tomato)"></i></div>
+      <div class="barl"><span>HAPPINESS</span><span id="happyN"></span></div>
+      <div class="pbar"><i id="barHappy" style="background:var(--mint)"></i></div>
+      <div class="row" style="margin-top:14px">
+        <span class="berries" id="berries"></span>
+        <button class="btn sm" id="feed">feed 🍓</button>
+        <button class="btn alt sm" id="pat">pat 🤍</button>
+      </div>
+    </div>
+  </div>
+  <div class="focusbox">
+    <div class="clockface" id="tDisplay">25:00<small>READY</small></div>
+    <div>
+      <div class="row presets" id="presets">
+        <button data-min="15">15m</button><button data-min="25" class="on">25m</button><button data-min="50">50m</button>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button class="btn" id="tStart">start focus</button>
+        <button class="btn alt" id="tBreak">5m break</button>
+        <button class="btn alt" id="tStop">give up</button>
+      </div>
+    </div>
+  </div>
+  <div class="studystats" id="studyStats"></div>
+  <p class="note">Finish focus sessions to earn strawberries (1 for every 5 minutes), then feed your bunny to keep her full. She gets hungry over time, even when the site is closed. Your pet lives in this browser.</p>
+</template>
+
+<script>
+(() => {
+  const WINDOWS = {
+    about:     {title:'about_me.txt',        w:640, tb:'var(--bubble)'},
+    stats:     {title:'stats.exe',           w:520, tb:'var(--mint)'},
+    portfolio: {title:'UGC Portfolio',       w:720, tb:'var(--butter)'},
+    brands:    {title:'Brands.app',          w:480, tb:'var(--lilac)'},
+    projects:  {title:'code_projects',       w:560, tb:'var(--mint)'},
+    terminal:  {title:'terminal — zsh',      w:560, tb:'var(--sky)'},
+    resume:    {title:'resume.pdf',          w:560, tb:'var(--paper)'},
+    brief:     {title:'send_a_brief',        w:560, tb:'var(--sky)'},
+    settings:  {title:'wallpaper settings',  w:420, tb:'var(--butter)'},
+    trash:     {title:'trash',               w:360, tb:'var(--paper)'},
+    sweeper:   {title:'strawberry_sweeper.exe', w:400, tb:'var(--bubble)'},
+    study:     {title:'study_buddy',         w:620, tb:'var(--mint)'},
+    press:     {title:'press_clippings',     w:560, tb:'var(--butter)'},
+    laylow:    {title:'lay_low_x_naveini',   w:640, tb:'var(--mint)'},
+    services:  {title:'services.txt',        w:520, tb:'var(--bubble)'}
+  };
+  const desktop = document.getElementById('desktop');
+  const tasks = document.getElementById('tasks');
+  const open = {};
+  let z = 100, cascade = 0;
+  const mobile = () => window.matchMedia('(max-width:720px)').matches;
+
+  function focusWin(id){
+    Object.entries(open).forEach(([k,o]) => {
+      o.el.classList.toggle('active', k===id);
+      o.task.classList.toggle('on', k===id && o.el.style.display!=='none');
+    });
+    if(open[id]) open[id].el.style.zIndex = ++z;
+  }
+
+  function openWin(id){
+    closeStart();
+    const cfg = WINDOWS[id]; if(!cfg) return;
+    if(open[id]){ open[id].el.style.display='flex'; focusWin(id); return; }
+    const el = document.createElement('section');
+    el.className='win'; el.setAttribute('role','dialog'); el.setAttribute('aria-label',cfg.title);
+    el.style.setProperty('--tb', cfg.tb);
+    const W = Math.min(cfg.w, desktop.clientWidth - 40);
+    el.style.width = W+'px';
+    const iconsRight = mobile() ? 0 : document.querySelector('.icons').getBoundingClientRect().right;
+    const left = Math.max(10, Math.min(desktop.clientWidth - W - 20, iconsRight + 24 + cascade*34));
+    const top = Math.max(10, 24 + cascade*30);
+    cascade = (cascade+1) % 7;
+    el.style.left = left+'px'; el.style.top = top+'px';
+    el.innerHTML = `<div class="titlebar"><span class="t">${cfg.title}</span>
+      <button class="min" aria-label="Minimize">_</button><button class="x" aria-label="Close">×</button></div>
+      <div class="content"></div>`;
+    el.querySelector('.content').appendChild(document.getElementById('tpl-'+id).content.cloneNode(true));
+    desktop.appendChild(el);
+
+    const task = document.createElement('button');
+    task.className='task'; task.textContent=cfg.title;
+    task.onclick = () => {
+      if(el.style.display==='none'){ el.style.display='flex'; focusWin(id); }
+      else if(el.classList.contains('active')){ el.style.display='none'; task.classList.remove('on'); el.classList.remove('active'); }
+      else focusWin(id);
+    };
+    tasks.appendChild(task);
+    open[id] = {el, task};
+
+    el.addEventListener('pointerdown', () => focusWin(id));
+    el.querySelector('.x').onclick = e => { e.stopPropagation(); closeWin(id); };
+    el.querySelector('.min').onclick = e => { e.stopPropagation(); el.style.display='none'; task.classList.remove('on'); el.classList.remove('active'); };
+    makeDraggable(el, el.querySelector('.titlebar'));
+    focusWin(id);
+    init[id] && init[id](el);
+  }
+
+  function closeWin(id){
+    const o = open[id]; if(!o) return;
+    o.el.classList.add('closing');
+    setTimeout(() => { o.el.remove(); o.task.remove(); }, 140);
+    delete open[id];
+  }
+
+  function makeDraggable(el, handle, bounded=true){
+    let sx, sy, ox, oy, dragging=false;
+    handle.addEventListener('pointerdown', e => {
+      if(mobile() || e.target.closest('button')) return;
+      dragging=true; sx=e.clientX; sy=e.clientY; ox=el.offsetLeft; oy=el.offsetTop;
+      handle.setPointerCapture(e.pointerId); handle.style.cursor='grabbing';
+    });
+    handle.addEventListener('pointermove', e => {
+      if(!dragging) return;
+      let nx = ox + e.clientX - sx, ny = oy + e.clientY - sy;
+      if(bounded){
+        nx = Math.max(-el.offsetWidth+80, Math.min(desktop.clientWidth-80, nx));
+        ny = Math.max(0, Math.min(desktop.clientHeight-40, ny));
+      }
+      el.style.left = nx+'px'; el.style.top = ny+'px'; el.style.right='auto';
+    });
+    const end = () => { dragging=false; handle.style.cursor=''; };
+    handle.addEventListener('pointerup', end); handle.addEventListener('pointercancel', end);
+  }
+
+  // ---------- per-window behaviour ----------
+  const init = {
+    stats(el){
+      el.querySelectorAll('[data-count]').forEach(n => {
+        const target = +n.dataset.count, suf = n.dataset.suffix; let i = 0;
+        const step = () => { i++; n.textContent = (target%1 ? (target*i/24).toFixed(1) : Math.round(target*i/24)) + suf; if(i<24) setTimeout(step, 45); };
+        step();
+      });
+      setTimeout(() => { const m = el.querySelector('#meter'); if(m) m.style.width='72%'; }, 60);
+    },
+    terminal(el){ terminal(el); },
+    sweeper(el){ sweeper(el); },
+    study(el){ study(el); },
+    brief(el){
+      const form = el.querySelector('#briefForm'), toast = el.querySelector('#briefToast');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const d = Object.fromEntries(new FormData(form));
+        const subject = encodeURIComponent(`Brief from ${d.brand} (${d.type})`);
+        const body = encodeURIComponent(`Name: ${d.name}\nBrand: ${d.brand}\nEmail: ${d.email}\nType: ${d.type}\n\n${d.msg}`);
+        window.location.href = `mailto:ugcnaveini@gmail.com?subject=${subject}&body=${body}`;
+        toast.className='toast show';
+        toast.textContent = "Your email app should open with the brief filled in. If it didn't, email ugcnaveini@gmail.com directly.";
+      });
+      el.querySelector('#copyEmail').onclick = async () => {
+        try{ await navigator.clipboard.writeText('ugcnaveini@gmail.com'); toast.textContent='Copied ugcnaveini@gmail.com ✓'; }
+        catch{ toast.textContent='Email: ugcnaveini@gmail.com'; }
+        toast.className='toast show';
+      };
+    },
+    settings(el){
+      const cur = document.body.className.match(/wp-\w+/)?.[0];
+      el.querySelectorAll('[data-wp]').forEach(b => {
+        b.classList.toggle('on', b.dataset.wp===cur);
+        b.onclick = () => {
+          document.body.className = document.body.className.replace(/wp-\w+/, b.dataset.wp);
+          el.querySelectorAll('[data-wp]').forEach(x => x.classList.toggle('on', x===b));
+          try{ localStorage.setItem('naveinios-wp', b.dataset.wp); }catch{}
+        };
+      });
+    }
+  };
+
+  // ---------- terminal ----------
+  function terminal(el){
+    const term = el.querySelector('#term');
+    const cmds = {
+      help: () => `commands:
+  whoami      who is this?
+  brands      brand partners
+  stats       the numbers
+  skills      what I work with
+  hire        recruiters, start here
+  collab      brands, start here
+  open <app>  about | portfolio | press | laylow | projects | resume | brief
+  wallpaper   change the vibe
+  clear       clear the screen`,
+      whoami: () => `Naveini Vasikaran (Na-vin-e)
+Computing @ Queen's University · UGC creator @naveini`,
+      brands: () => `Sony · Amazon · Kate Spade · Chiquita · Bubba · Celsius · Jac & Jill's · Lay Low
+→ type 'collab' to add yours`,
+      stats: () => `views      ████████████████████ 20M+
+followers  ███████░░░░░░░░░░░░░ 7K and growing`,
+      skills: () => `code      → Python, Java, JavaScript, HTML/CSS, Git
+creative  → short-form video, editing, storytelling, UGC
+people    → community building, brand communication`,
+      hire: () => { openWin('resume'); return `opening resume.pdf…
+I'm building on both sides: shipping code and an audience.`; },
+      collab: () => { openWin('brief'); return 'opening send_a_brief… let\'s make something.'; },
+      wallpaper: () => { openWin('settings'); return 'opening wallpaper settings…'; },
+      sudo: () => ({err:'nice try. permission denied 🙂'}),
+      ls: () => 'about_me.txt  UGC_Portfolio/  stats.exe  Brands.app  code_projects/  resume.pdf  send_a_brief',
+    };
+    const print = (html, cls='o') => { const d=document.createElement('div'); d.className=cls; d.textContent=html; term.insertBefore(d, line); };
+    const line = document.createElement('div');
+    line.innerHTML = '<span class="p">naveini@os ~ %</span> <input aria-label="Terminal input" autocomplete="off" spellcheck="false">';
+    term.appendChild(line);
+    const input = line.querySelector('input');
+    const hist = []; let hi = 0;
+    term.addEventListener('click', () => input.focus());
+    input.addEventListener('keydown', e => {
+      if(e.key==='ArrowUp'){ if(hi>0){hi--; input.value=hist[hi]||'';} e.preventDefault(); return; }
+      if(e.key==='ArrowDown'){ if(hi<hist.length){hi++; input.value=hist[hi]||'';} e.preventDefault(); return; }
+      if(e.key!=='Enter') return;
+      const raw = input.value.trim(); input.value='';
+      if(raw){ hist.push(raw); hi=hist.length; }
+      print('naveini@os ~ % '+raw, 'p');
+      if(!raw) return;
+      const [c, arg] = raw.toLowerCase().split(/\s+/);
+      if(c==='clear'){ [...term.children].forEach(ch => ch!==line && ch.remove()); return; }
+      if(c==='open'){ if(WINDOWS[arg]){ openWin(arg); print('opening '+arg+'…'); } else print('usage: open about | portfolio | press | laylow | projects | resume | brief','err'); term.scrollTop=term.scrollHeight; return; }
+      const fn = cmds[c];
+      if(!fn){ print(`command not found: ${c}. try 'help'`,'err'); }
+      else { const out = fn(); if(out && out.err) print(out.err,'err'); else print(out); }
+      term.scrollTop = term.scrollHeight;
+    });
+    setTimeout(() => input.focus(), 50);
+  }
+
+  // ================= BUNNY ART =================
+  function bunnySVG(mood='normal', book=false){
+    const ink='#1f2756', fur='#f1dcb8', fur2='#e2c296', pink='#f6c6cc';
+    const eyes = {
+      happy:`<path d="M37 53q4-5 8 0M55 53q4-5 8 0" stroke="${ink}" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+      sleep:`<path d="M37 53h8M55 53h8" stroke="${ink}" stroke-width="3" stroke-linecap="round"/>`,
+      sad:`<circle cx="41" cy="53" r="3" fill="${ink}"/><circle cx="59" cy="53" r="3" fill="${ink}"/><path d="M36 46l8 3M64 46l-8 3" stroke="${ink}" stroke-width="2.5" stroke-linecap="round"/>`,
+      hungry:`<circle cx="41" cy="53" r="3" fill="${ink}"/><circle cx="59" cy="53" r="3" fill="${ink}"/><path d="M36 46l8 3M64 46l-8 3" stroke="${ink}" stroke-width="2.5" stroke-linecap="round"/>`,
+      focus:`<circle cx="41" cy="53" r="2.5" fill="${ink}"/><circle cx="59" cy="53" r="2.5" fill="${ink}"/><circle cx="41" cy="53" r="7" fill="none" stroke="${ink}" stroke-width="2"/><circle cx="59" cy="53" r="7" fill="none" stroke="${ink}" stroke-width="2"/><path d="M48 53h4" stroke="${ink}" stroke-width="2"/>`,
+      normal:`<circle cx="41" cy="53" r="3" fill="${ink}"/><circle cx="59" cy="53" r="3" fill="${ink}"/>`
+    }[mood] || '';
+    const mouth = (mood==='sad'||mood==='hungry')
+      ? `<path d="M45 65q5-4 10 0" stroke="${ink}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`
+      : `<path d="M45 61q2.5 3 5 0q2.5 3 5 0" stroke="${ink}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+    const zz = mood==='sleep' ? `<text x="74" y="30" font-family="monospace" font-size="12" font-weight="700" fill="${ink}">z</text><text x="82" y="20" font-family="monospace" font-size="9" font-weight="700" fill="${ink}">z</text>` : '';
+    const bk = book ? `<rect x="33" y="72" width="34" height="18" fill="#fdf6ea" stroke="${ink}" stroke-width="2.5"/><path d="M50 72v18" stroke="${ink}" stroke-width="2"/><path d="M37 78h9M37 83h9M54 78h9M54 83h9" stroke="#c8323b" stroke-width="1.5"/>` : '';
+    return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g transform="rotate(-14 36 32)"><ellipse cx="36" cy="30" rx="7.5" ry="19" fill="${fur}" stroke="${ink}" stroke-width="3"/><ellipse cx="36" cy="31" rx="3.2" ry="12" fill="${pink}"/></g>
+      <g transform="rotate(14 64 32)"><ellipse cx="64" cy="30" rx="7.5" ry="19" fill="${fur}" stroke="${ink}" stroke-width="3"/><ellipse cx="64" cy="31" rx="3.2" ry="12" fill="${pink}"/></g>
+      <ellipse cx="50" cy="80" rx="25" ry="17" fill="${fur}" stroke="${ink}" stroke-width="3"/>
+      <ellipse cx="38" cy="94" rx="7" ry="4" fill="${fur2}" stroke="${ink}" stroke-width="2.5"/><ellipse cx="62" cy="94" rx="7" ry="4" fill="${fur2}" stroke="${ink}" stroke-width="2.5"/>
+      <circle cx="50" cy="55" r="21" fill="${fur}" stroke="${ink}" stroke-width="3"/>
+      <circle cx="36" cy="60" r="4" fill="${pink}"/><circle cx="64" cy="60" r="4" fill="${pink}"/>
+      ${eyes}${mouth}
+      <path d="M36 39Q50 12 64 39Q50 45 36 39Z" fill="#c8323b" stroke="${ink}" stroke-width="2.5" stroke-linejoin="round"/>
+      <g fill="#fdf6ea"><ellipse cx="44" cy="35" rx="1.2" ry="1.8"/><ellipse cx="50" cy="31" rx="1.2" ry="1.8"/><ellipse cx="56" cy="35" rx="1.2" ry="1.8"/><ellipse cx="47" cy="39" rx="1.2" ry="1.8"/><ellipse cx="53" cy="39" rx="1.2" ry="1.8"/></g>
+      <path d="M50 21l-7-3 4 6-6 1 9 1 9-1-6-1 4-6z" fill="#5f7a4a" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/>
+      ${bk}${zz}
+    </svg>`;
+  }
+
+  // ================= SHARED PET STATE =================
+  const PKEY='naveinios-pet';
+  const dayKey = (d=new Date()) => d.toISOString().slice(0,10);
+  let PET;
+  try{ PET = JSON.parse(localStorage.getItem(PKEY)); }catch{}
+  if(!PET) PET = {name:'Mochi', full:80, happy:80, berries:3, sessions:0, totalMin:0, today:{d:dayKey(),min:0}, streak:{last:null,n:0}, t:Date.now(), focus:null, len:25};
+  const clamp = v => Math.max(0, Math.min(100, v));
+  function savePet(){ try{ localStorage.setItem(PKEY, JSON.stringify(PET)); }catch{} }
+  function decay(){
+    const now=Date.now(), h=(now-PET.t)/3.6e6;
+    if(h>0){ PET.full=clamp(PET.full-4*h); PET.happy=clamp(PET.happy-(PET.full<25?5:2)*h); PET.t=now; }
+    if(PET.today.d!==dayKey()) PET.today={d:dayKey(),min:0};
+  }
+  function petMood(){
+    if(PET.focus && PET.focus.type==='focus') return 'focus';
+    if(PET.full<30) return 'hungry';
+    if(PET.happy<35) return 'sad';
+    const hr=new Date().getHours(); if(hr<6) return 'sleep';
+    return PET.happy>70 ? 'happy' : 'normal';
+  }
+  function petStage(){ const s=PET.sessions; return s<4?['baby bun',.75]:s<12?['study bun',.88]:['scholar bun',1]; }
+  const renderers = new Set();
+  const refreshPet = () => renderers.forEach(fn => fn());
+
+  let audioCtx;
+  function chime(){
+    try{
+      if(!audioCtx) return;
+      [659,784,1047].forEach((f,i)=>{ const o=audioCtx.createOscillator(), g=audioCtx.createGain();
+        o.type='triangle'; o.frequency.value=f; o.connect(g); g.connect(audioCtx.destination);
+        const t=audioCtx.currentTime+i*.18; g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(.2,t+.02); g.gain.exponentialRampToValueAtTime(.0001,t+.4);
+        o.start(t); o.stop(t+.45); });
+    }catch{}
+  }
+  let lastSay = '', sayT;
+  function petSay(msg){ lastSay = msg; clearTimeout(sayT); sayT=setTimeout(()=>{ lastSay=''; refreshPet(); }, 7000); refreshPet(); }
+
+  function completeTimer(){
+    const f = PET.focus; PET.focus=null;
+    if(f.type==='focus'){
+      const earned = Math.max(1, Math.round(f.mins/5));
+      PET.berries += earned; PET.happy = clamp(PET.happy+15); PET.sessions++; PET.totalMin += f.mins;
+      PET.today.min += f.mins;
+      const y = new Date(Date.now()-864e5).toISOString().slice(0,10);
+      if(PET.streak.last!==dayKey()){ PET.streak.n = PET.streak.last===y ? PET.streak.n+1 : 1; PET.streak.last=dayKey(); }
+      petSay(`Session done! You earned ${earned} 🍓. Take a break?`);
+    } else petSay('Break over. Ready for another round? 📚');
+    savePet(); chime();
+  }
+  const baseTitle = document.title;
+  setInterval(() => {
+    decay();
+    if(PET.focus){
+      const left = PET.focus.end - Date.now();
+      if(left<=0){ completeTimer(); document.title = '🍓 done! ' + baseTitle; }
+      else { const m=Math.floor(left/60000), s=Math.floor(left/1000)%60; document.title = `${PET.focus.type==='focus'?'📚':'☕'} ${m}:${String(s).padStart(2,'0')} · ${baseTitle}`; }
+    }
+    refreshPet();
+  }, 1000);
+  setInterval(savePet, 30000);
+
+  // ================= STUDY BUDDY WINDOW =================
+  function study(el){
+    const $ = s => el.querySelector(s);
+    const nameEl=$('#petName');
+    nameEl.textContent = PET.name;
+    nameEl.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); nameEl.blur(); } });
+    nameEl.addEventListener('blur', () => { PET.name = nameEl.textContent.trim().slice(0,16) || 'Mochi'; nameEl.textContent=PET.name; savePet(); });
+    el.querySelectorAll('#presets button').forEach(b => b.onclick = () => {
+      if(PET.focus) return; PET.len=+b.dataset.min; savePet(); render(); });
+    const start = (type, mins) => {
+      try{ audioCtx = audioCtx || new (window.AudioContext||window.webkitAudioContext)(); audioCtx.resume && audioCtx.resume(); }catch{}
+      PET.focus = {type, mins, end: Date.now()+mins*60000}; savePet();
+      petSay(type==='focus' ? `Let's focus for ${mins} minutes. I'll study with you! 📖` : 'Stretch, drink some water, snack 🍓');
+    };
+    $('#tStart').onclick = () => start('focus', PET.len||25);
+    $('#tBreak').onclick = () => start('break', 5);
+    $('#tStop').onclick = () => {
+      if(!PET.focus) return;
+      const wasFocus = PET.focus.type==='focus'; PET.focus=null;
+      if(wasFocus){ PET.happy=clamp(PET.happy-10); petSay("Aw, we stopped early… let's try again soon."); }
+      else petSay('Break skipped. Back to it!');
+      savePet(); document.title=baseTitle;
+    };
+    $('#feed').onclick = () => {
+      if(PET.berries<1){ petSay('No strawberries left! Finish a focus session to earn some.'); return; }
+      if(PET.full>=100){ petSay("I'm so full… 🫃"); return; }
+      PET.berries--; PET.full=clamp(PET.full+20); PET.happy=clamp(PET.happy+4); savePet();
+      petSay(['nom nom 🍓','yummy!!','best strawberry ever','*happy bunny noises*'][Math.floor(Math.random()*4)]);
+      hopHome();
+    };
+    $('#pat').onclick = e => {
+      PET.happy=clamp(PET.happy+2); savePet(); heart(e.clientX, e.clientY); hopHome();
+      petSay(PET.focus?.type==='focus' ? 'shh, I\'m studying 🤓' : ['hehe','🤍','more pats pls','you\'re doing great'][Math.floor(Math.random()*4)]);
+    };
+    function hopHome(){ const h=$('#petHome'); h.classList.remove('bounce'); void h.offsetWidth; h.classList.add('bounce'); }
+    let lastMood='', lastSize=0;
+    function render(){
+      if(!document.body.contains(el)){ renderers.delete(render); return; }
+      const mood=petMood(), [stageName, scale]=petStage();
+      if(mood+scale!==lastMood+lastSize){ $('#petHome').innerHTML = bunnySVG(mood, mood==='focus'); $('#petHome').style.width=(150*scale)+'px'; lastMood=mood; lastSize=scale; }
+      $('#petStage').textContent = `${stageName.toUpperCase()} · ${PET.sessions} SESSIONS`;
+      $('#barFull').style.width=PET.full+'%'; $('#barHappy').style.width=PET.happy+'%';
+      $('#fullN').textContent=Math.round(PET.full); $('#happyN').textContent=Math.round(PET.happy);
+      $('#berries').textContent = `🍓 × ${PET.berries}`;
+      $('#feed').disabled = PET.berries<1;
+      el.querySelectorAll('#presets button').forEach(b => { b.classList.toggle('on', +b.dataset.min===(PET.len||25)); b.disabled=!!PET.focus; });
+      const f=PET.focus, td=$('#tDisplay');
+      if(f){ const left=Math.max(0,f.end-Date.now()), m=Math.floor(left/60000), s=Math.floor(left/1000)%60;
+        td.innerHTML = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}<small>${f.type==='focus'?'FOCUSING…':'ON BREAK'}</small>`; }
+      else td.innerHTML = `${String(PET.len||25).padStart(2,'0')}:00<small>READY</small>`;
+      $('#tStart').disabled=!!f; $('#tBreak').disabled=!!f; $('#tStop').disabled=!f;
+      let say = lastSay;
+      if(!say){ say = {hungry:"I'm hungry… study with me to earn strawberries? 🥺", sad:'I missed you. Study session?', sleep:'zzz… (it\'s late, go to bed!)', focus:'studying hard 📖', happy:'Ready when you are! ✿', normal:'Hi! Want to focus together?'}[mood]; }
+      $('#petSay').textContent = say;
+      $('#studyStats').innerHTML = `<span class="tag">today: ${PET.today.min} min</span><span class="tag">total: ${Math.floor(PET.totalMin/60)}h ${PET.totalMin%60}m</span><span class="tag">🔥 streak: ${PET.streak.last===dayKey()||PET.streak.last===new Date(Date.now()-864e5).toISOString().slice(0,10)?PET.streak.n:0} day${PET.streak.n===1?'':'s'}</span>`;
+    }
+    lastSay=''; renderers.add(render); render();
+  }
+
+  function heart(x,y,ch='🤍'){ const h=document.createElement('div'); h.className='heart'; h.textContent=ch; h.style.left=(x-8)+'px'; h.style.top=(y-16)+'px'; document.body.appendChild(h); setTimeout(()=>h.remove(),1000); }
+
+  // ================= STRAWBERRY SWEEPER =================
+  function sweeper(el){
+    const N=9, M=10, $=s=>el.querySelector(s);
+    const board=$('#swBoard'), msg=$('#swMsg'), leftEl=$('#swLeft'), timeEl=$('#swTime'), resetBtn=$('#swReset'), flagBtn=$('#swFlag');
+    let mines, rev, flag, placed, over, t0, timer, flagMode=false, cells=[];
+    const nb = i => { const r=Math.floor(i/N), c=i%N, out=[]; for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){ if(!dr&&!dc)continue; const rr=r+dr, cc=c+dc; if(rr>=0&&rr<N&&cc>=0&&cc<N) out.push(rr*N+cc);} return out; };
+    const count = i => nb(i).filter(j=>mines[j]).length;
+    function reset(){
+      mines=Array(N*N).fill(false); rev=Array(N*N).fill(false); flag=Array(N*N).fill(false);
+      placed=false; over=false; clearInterval(timer); timeEl.textContent='000'; resetBtn.textContent='🐰';
+      msg.textContent="10 strawberries are hiding. Don't squish them! Right-click (or long-press, or 🌿 mode) to mark one with a leaf.";
+      board.innerHTML=''; cells=[];
+      for(let i=0;i<N*N;i++){
+        const b=document.createElement('button'); b.setAttribute('aria-label','hidden cell');
+        let lp, longed=false;
+        b.addEventListener('pointerdown', e => { if(e.pointerType!=='mouse'){ longed=false; lp=setTimeout(()=>{ longed=true; toggleFlag(i); }, 420); } });
+        b.addEventListener('pointerup', () => clearTimeout(lp));
+        b.addEventListener('pointerleave', () => clearTimeout(lp));
+        b.addEventListener('click', () => { if(longed){ longed=false; return; } flagMode ? toggleFlag(i) : open(i); });
+        b.addEventListener('contextmenu', e => { e.preventDefault(); toggleFlag(i); });
+        board.appendChild(b); cells.push(b);
+      }
+      update();
+    }
+    function place(first){
+      const safe=new Set([first,...nb(first)]); let n=0;
+      while(n<M){ const i=Math.floor(Math.random()*N*N); if(!mines[i]&&!safe.has(i)){ mines[i]=true; n++; } }
+      placed=true; t0=Date.now();
+      timer=setInterval(()=>{ timeEl.textContent=String(Math.min(999,Math.floor((Date.now()-t0)/1000))).padStart(3,'0'); },500);
+    }
+    function toggleFlag(i){ if(over||rev[i]) return; flag[i]=!flag[i]; update(); }
+    function open(i){
+      if(over||flag[i]||rev[i]) return;
+      if(!placed) place(i);
+      if(mines[i]){ lose(i); return; }
+      const q=[i];
+      while(q.length){ const k=q.pop(); if(rev[k]||flag[k]) continue; rev[k]=true; if(count(k)===0) nb(k).forEach(j=>{ if(!rev[j]&&!mines[j]) q.push(j); }); }
+      update();
+      if(rev.filter(Boolean).length===N*N-M) win();
+    }
+    function lose(i){
+      over=true; clearInterval(timer); resetBtn.textContent='😵';
+      mines.forEach((m,j)=>{ if(m) rev[j]=true; }); update(); cells[i].classList.add('boom');
+      msg.textContent='Squish! 🍓💥 You stepped on a strawberry. Tap the bunny to try again.';
+    }
+    function win(){
+      over=true; clearInterval(timer); resetBtn.textContent='😎';
+      mines.forEach((m,j)=>{ if(m) flag[j]=true; }); update();
+      const secs=Math.floor((Date.now()-t0)/1000);
+      let best; try{ best=+localStorage.getItem('naveinios-sweep-best')||0; if(!best||secs<best){ localStorage.setItem('naveinios-sweep-best',secs); best=secs; } }catch{}
+      msg.textContent=`You saved every strawberry in ${secs}s! 🍓✨${best?` Best: ${best}s`:''}`;
+      PET.happy=clamp(PET.happy+5); savePet();
+    }
+    function update(){
+      cells.forEach((b,i)=>{
+        b.className=''; b.textContent='';
+        if(rev[i]){ b.classList.add('r');
+          if(mines[i]){ b.textContent='🍓'; }
+          else { const n=count(i); if(n){ b.textContent=n; b.classList.add('n'+n); } }
+        } else if(flag[i]) b.textContent='🌿';
+      });
+      leftEl.textContent='🍓 '+(M-flag.filter(Boolean).length);
+    }
+    resetBtn.onclick=reset;
+    flagBtn.onclick=()=>{ flagMode=!flagMode; flagBtn.classList.toggle('on',flagMode); };
+    reset();
+  }
+
+  // ================= DESKTOP PET =================
+  (function deskPet(){
+    const dp=document.createElement('div'); dp.className='deskpet';
+    dp.innerHTML='<div class="say"></div><div class="body"></div>';
+    document.body.appendChild(dp);
+    const body=dp.querySelector('.body'), say=dp.querySelector('.say');
+    let x=40, target=40, dir=1, idleUntil=0, last=performance.now(), mood='', sayTimer;
+    function draw(){ const m=petMood(); if(m!==mood){ mood=m; body.innerHTML=bunnySVG(m==='focus'?'happy':m, m==='focus'); } }
+    renderers.add(draw); draw();
+    function speak(t, ms=2800){ say.textContent=t; say.classList.add('show'); clearTimeout(sayTimer); sayTimer=setTimeout(()=>say.classList.remove('show'), ms); }
+    function step(now){
+      const dt=Math.min(.1,(now-last)/1000); last=now;
+      const maxX=window.innerWidth-70;
+      if(PET.focus && PET.focus.type==='focus'){ dp.classList.remove('walk'); }
+      else if(now>idleUntil){
+        if(Math.abs(target-x)<2){
+          idleUntil=now+2000+Math.random()*5000;
+          target=Math.max(10,Math.min(maxX, 10+Math.random()*maxX));
+          dp.classList.remove('walk');
+        } else {
+          dir = target>x ? 1 : -1;
+          x += dir*45*dt; dp.classList.add('walk');
+        }
+      }
+      x=Math.max(10,Math.min(maxX,x));
+      dp.style.transform=`translateX(${x-40}px)`;
+      body.style.scale = `${dir} 1`;
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    dp.addEventListener('click', e => {
+      dp.classList.remove('hop'); void dp.offsetWidth; dp.classList.add('hop');
+      heart(e.clientX, e.clientY);
+      PET.happy=clamp(PET.happy+1); savePet();
+      const m=petMood();
+      const lines = m==='hungry' ? ["i'm hungry… study with me? 🍓", 'strawberry pls 🥺']
+        : m==='focus' ? ["shh, we're studying 📖", 'focus mode on 🤓']
+        : m==='sleep' ? ['zzz…', "it's late, go to bed!"]
+        : [`hi! I'm ${PET.name} ✿`, 'study together? 📚', 'try the strawberry game 🍓', 'you look cute today', 'hire her!! 💼'];
+      speak(lines[Math.floor(Math.random()*lines.length)]);
+      if(e.detail===2) openWin('study');
+    });
+    dp.title='Double-click to open Study Buddy';
+    setTimeout(()=>speak(`hi! I'm ${PET.name} 🍓`), 2600);
+  })();
+
+  // ---------- global wiring ----------
+  document.addEventListener('click', e => {
+    const t = e.target.closest('[data-open]');
+    if(t){ openWin(t.dataset.open); }
+  });
+
+  const startBtn = document.getElementById('startBtn'), startmenu = document.getElementById('startmenu');
+  function closeStart(){ startmenu.classList.remove('open'); startBtn.setAttribute('aria-expanded','false'); }
+  startBtn.onclick = e => { e.stopPropagation(); const o = startmenu.classList.toggle('open'); startBtn.setAttribute('aria-expanded', o); };
+  document.addEventListener('pointerdown', e => { if(!e.target.closest('#startmenu,#startBtn')) closeStart(); });
+  document.getElementById('tidy').onclick = () => Object.keys(open).forEach(closeWin);
+  document.addEventListener('keydown', e => {
+    if(e.key==='Escape'){ const top = Object.entries(open).filter(([,o])=>o.el.style.display!=='none').sort((a,b)=>b[1].el.style.zIndex-a[1].el.style.zIndex)[0]; if(top) closeWin(top[0]); closeStart(); }
+  });
+
+  // sticky note drag
+  const sticky = document.getElementById('sticky');
+  makeDraggable(sticky, sticky, false);
+
+  // clock
+  const clock = document.getElementById('clock');
+  const tick = () => clock.textContent = new Date().toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
+  tick(); setInterval(tick, 15000);
+
+  // remembered wallpaper
+  try{ const wp = localStorage.getItem('naveinios-wp'); if(wp) document.body.className = document.body.className.replace(/wp-\w+/, wp); }catch{}
+
+  // ---------- boot ----------
+  const boot = document.getElementById('boot'), linesEl = document.getElementById('bootLines'), bar = document.getElementById('bootBar');
+  const lines = ['> loading creativity.dll ........ ok','> mounting /portfolio (20M+ views) ok','> compiling queens_computing.java  ok','> calibrating ring light .......... ok','> welcome, visitor ✿'];
+  let seen = false; try{ seen = sessionStorage.getItem('naveinios-booted'); }catch{}
+  function finishBoot(){
+    boot.classList.add('done'); setTimeout(() => boot.remove(), 450);
+    try{ sessionStorage.setItem('naveinios-booted','1'); }catch{}
+    if(!mobile()) setTimeout(() => openWin('about'), 250);
+  }
+  document.getElementById('skipBoot').onclick = finishBoot;
+  if(seen || window.matchMedia('(prefers-reduced-motion:reduce)').matches){ finishBoot(); }
+  else {
+    let i = 0;
+    const next = () => {
+      if(!document.body.contains(boot)) return;
+      if(i < lines.length){ const d=document.createElement('div'); d.textContent=lines[i]; linesEl.appendChild(d); bar.style.width = ((i+1)/lines.length*100)+'%'; i++; setTimeout(next, 330); }
+      else setTimeout(finishBoot, 450);
+    };
+    setTimeout(next, 250);
+  }
+})();
+</script>
 </body>
 </html>
